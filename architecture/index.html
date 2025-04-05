@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../apis/">
+        <link rel="prev" href="../requirements/">
       
       
-        <link rel="next" href="../deployment/">
+        <link rel="next" href="../backend-tech/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Testing - Online Judge Documentation</title>
+        <title>Architecture Design - Online Judge Documentation</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing
+              Architecture Design
             
           </span>
         </div>
@@ -284,18 +284,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -311,7 +313,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             System Architecture
@@ -322,10 +324,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Architecture Design
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -336,6 +360,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      整体架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整体架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构图
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      微服务划分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      技术选型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      设计原则
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -606,32 +701,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Testing
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -642,44 +715,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试工具
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试内容
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -927,16 +962,49 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      测试工具
+      整体架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整体架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      架构图
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      微服务划分
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      测试内容
+      技术选型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      设计原则
     </span>
   </a>
   
@@ -958,34 +1026,57 @@
 
 
 
-<h1 id="_1">测试</h1>
-<h2 id="_2">测试工具</h2>
+<h1 id="_1">系统架构设计</h1>
+<h2 id="_2">整体架构</h2>
+<p>Online Judge 采用微服务架构，分为前端、后端和基础设施层。</p>
+<h3 id="_3">架构图</h3>
+<p>[用户] --&gt; [前端 (Vue3)] --&gt; [Nginx (负载均衡)]
+|
+v
+[API 网关] --&gt; [题目服务] --&gt; [MySQL (题目数据)]
+--&gt; [判题服务] --&gt; [Docker 沙箱]
+--&gt; [用户服务] --&gt; [MySQL (用户信息)]
+--&gt; [消息队列 (RabbitMQ)] --&gt; [异步任务]
+--&gt; [搜索服务 (Elasticsearch)] --&gt; [题目搜索]
+--&gt; [定时任务 (XXL-JOB)] --&gt; [清理任务]</p>
+<h2 id="_4">微服务划分</h2>
+<ol>
+<li><strong>题目服务</strong>:<ul>
+<li>管理题目（增删改查）。</li>
+<li>提供题目列表和详情 API。</li>
+</ul>
+</li>
+<li><strong>判题服务</strong>:<ul>
+<li>运行用户代码（Docker 沙箱）。</li>
+<li>异步处理判题任务（通过 RabbitMQ）。</li>
+</ul>
+</li>
+<li><strong>用户服务</strong>:<ul>
+<li>管理用户和权限。</li>
+<li>集成阿里云短信服务（发送验证码）。</li>
+</ul>
+</li>
+<li><strong>搜索服务</strong>:<ul>
+<li>使用 Elasticsearch 实现题目搜索（支持分词）。</li>
+</ul>
+</li>
+<li><strong>定时任务服务</strong>:<ul>
+<li>使用 XXL-JOB 定时清理过期数据（TTL 机制）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="_5">技术选型</h2>
 <ul>
-<li><strong>后端</strong>:<ul>
-<li>JUnit: 单元测试。</li>
-<li>Postman: API 测试。</li>
+<li><strong>服务注册与发现</strong>: Nacos（服务注册、配置中心）。</li>
+<li><strong>消息队列</strong>: RabbitMQ（异步判题、通知）。</li>
+<li><strong>日志系统</strong>: ELK（Elasticsearch + Logstash + Kibana）。</li>
+<li><strong>分布式部署</strong>: 阿里云 ECS + Docker。</li>
 </ul>
-</li>
-<li><strong>前端</strong>:<ul>
-<li>Jest: 组件测试。</li>
-<li>Cypress: 端到端测试。</li>
-</ul>
-</li>
-<li><strong>性能</strong>:<ul>
-<li>JMeter: 并发测试（100 个提交）。</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">测试内容</h2>
+<h2 id="_6">设计原则</h2>
 <ul>
-<li><strong>单元测试</strong>: 测试判题逻辑（题号 1004）。</li>
-<li><strong>集成测试</strong>: 测试 <code>/api/submit</code>。</li>
-<li><strong>用例测试</strong>:<ul>
-<li>题号 1000: "0 0" -&gt; "0", "1 2" -&gt; "3"。</li>
-<li>题号 1004: "5" -&gt; "2", "10" -&gt; "4"。</li>
-</ul>
-</li>
-<li><strong>结果</strong>: 61 道题目测试通过。</li>
+<li><strong>高内聚低耦合</strong>: 各微服务独立部署，功能解耦。</li>
+<li><strong>异步处理</strong>: 判题任务通过 RabbitMQ 异步执行。</li>
+<li><strong>可扩展性</strong>: 新增语言支持只需扩展判题服务。</li>
 </ul>
 
 

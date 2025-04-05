@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../apis/">
+        <link rel="prev" href="../dev-steps/">
       
       
-        <link rel="next" href="../deployment/">
+        <link rel="next" href="../apis/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Testing - Online Judge Documentation</title>
+        <title>Frontend Development - Online Judge Documentation</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing
+              Frontend Development
             
           </span>
         </div>
@@ -445,18 +445,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -472,7 +474,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Development
@@ -552,10 +554,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../frontend-dev/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Frontend Development
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -566,6 +590,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      开发流程
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      挑战与解决
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -606,32 +668,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Testing
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -642,44 +682,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试工具
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      测试内容
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -927,7 +929,7 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      测试工具
+      开发流程
     </span>
   </a>
   
@@ -936,7 +938,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      测试内容
+      挑战与解决
     </span>
   </a>
   
@@ -958,34 +960,33 @@
 
 
 
-<h1 id="_1">测试</h1>
-<h2 id="_2">测试工具</h2>
+<h1 id="_1">前端开发</h1>
+<h2 id="_2">开发流程</h2>
+<ol>
+<li><strong>环境搭建</strong>:<ul>
+<li>使用 VS Code，安装 Vite 和 Vue3。</li>
+<li>配置 TypeScript 和 Element Plus。</li>
+</ul>
+</li>
+<li><strong>页面开发</strong>:<ul>
+<li><strong>题目列表</strong>: 使用 Vue Router 实现分页。</li>
+<li><strong>提交页面</strong>: 集成 Monaco Editor，支持代码编辑。</li>
+<li><strong>搜索功能</strong>: 调用 ES API，展示搜索结果。</li>
+</ul>
+</li>
+<li><strong>状态管理</strong>:<ul>
+<li>使用 Pinia 管理题目和用户状态。</li>
+</ul>
+</li>
+<li><strong>测试</strong>:<ul>
+<li>使用 Jest 测试组件功能。</li>
+</ul>
+</li>
+</ol>
+<h2 id="_3">挑战与解决</h2>
 <ul>
-<li><strong>后端</strong>:<ul>
-<li>JUnit: 单元测试。</li>
-<li>Postman: API 测试。</li>
-</ul>
-</li>
-<li><strong>前端</strong>:<ul>
-<li>Jest: 组件测试。</li>
-<li>Cypress: 端到端测试。</li>
-</ul>
-</li>
-<li><strong>性能</strong>:<ul>
-<li>JMeter: 并发测试（100 个提交）。</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">测试内容</h2>
-<ul>
-<li><strong>单元测试</strong>: 测试判题逻辑（题号 1004）。</li>
-<li><strong>集成测试</strong>: 测试 <code>/api/submit</code>。</li>
-<li><strong>用例测试</strong>:<ul>
-<li>题号 1000: "0 0" -&gt; "0", "1 2" -&gt; "3"。</li>
-<li>题号 1004: "5" -&gt; "2", "10" -&gt; "4"。</li>
-</ul>
-</li>
-<li><strong>结果</strong>: 61 道题目测试通过。</li>
+<li><strong>挑战</strong>: 代码编辑器性能问题。</li>
+<li><strong>解决</strong>: 优化 Monaco Editor 加载，减少渲染开销。</li>
 </ul>
 
 
