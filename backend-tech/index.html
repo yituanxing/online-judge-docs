@@ -457,6 +457,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关知识
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -596,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backend-dev.md" class="md-nav__link">
+      <a href="../backend-dev/" class="md-nav__link">
         
   
   
@@ -787,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database.md" class="md-nav__link">
+      <a href="../database/" class="md-nav__link">
         
   
   
@@ -810,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network.md" class="md-nav__link">
+      <a href="../network/" class="md-nav__link">
         
   
   
@@ -833,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../os.md" class="md-nav__link">
+      <a href="../os/" class="md-nav__link">
         
   
   
@@ -856,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../frameworks.md" class="md-nav__link">
+      <a href="../frameworks/" class="md-nav__link">
         
   
   
@@ -879,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components.md" class="md-nav__link">
+      <a href="../components/" class="md-nav__link">
         
   
   
@@ -946,6 +955,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关知识
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -965,54 +983,45 @@
 <h1 id="_1">后端技术选型</h1>
 <h2 id="_2">技术栈</h2>
 <ul>
-<li><strong>语言</strong>: Java 17<ul>
+<li><strong>语言</strong>: Java 17</li>
 <li>原因: 企业常用，性能优异，生态成熟。</li>
-</ul>
-</li>
-<li><strong>框架</strong>: Spring Boot 3<ul>
+<li><strong>框架</strong>: Spring Boot 3</li>
 <li>原因: 简化开发，内置微服务支持。</li>
-</ul>
-</li>
-<li><strong>数据库</strong>: MySQL 8.0<ul>
+<li><strong>数据库</strong>: MySQL 8.0</li>
 <li>原因: 关系型数据库，适合题目和用户数据存储。</li>
-</ul>
-</li>
-<li><strong>服务注册与发现</strong>: Nacos<ul>
+<li><strong>缓存</strong>: Redis</li>
+<li>原因: 缓存热点题目和用户会话，提升性能。</li>
+<li><strong>服务注册与发现</strong>: Nacos</li>
 <li>原因: 支持服务注册、配置管理，适合微服务。</li>
-</ul>
-</li>
-<li><strong>消息队列</strong>: RabbitMQ<ul>
+<li><strong>消息队列</strong>: RabbitMQ</li>
 <li>原因: 异步处理判题任务，解耦服务。</li>
-</ul>
-</li>
-<li><strong>定时任务</strong>: XXL-JOB<ul>
+<li><strong>定时任务</strong>: XXL-JOB</li>
 <li>原因: 分布式定时任务，支持清理过期数据（TTL 机制）。</li>
-</ul>
-</li>
-<li><strong>搜索</strong>: Elasticsearch<ul>
+<li><strong>搜索</strong>: Elasticsearch</li>
 <li>原因: 支持题目搜索，ES 分词功能强大。</li>
-</ul>
-</li>
-<li><strong>日志</strong>: ELK 栈（Elasticsearch + Logstash + Kibana）<ul>
+<li><strong>日志</strong>: ELK 栈（Elasticsearch + Logstash + Kibana）</li>
 <li>原因: 集中化日志管理，便于排查问题。</li>
-</ul>
-</li>
-<li><strong>短信服务</strong>: 阿里云短信服务<ul>
+<li><strong>短信服务</strong>: 阿里云短信服务</li>
 <li>原因: 用于用户注册和通知，稳定可靠。</li>
-</ul>
-</li>
-<li><strong>开发环境</strong>:<ul>
+<li><strong>开发环境</strong>:</li>
 <li>IDE: IntelliJ IDEA</li>
 <li>构建工具: Maven</li>
 <li>版本控制: Git</li>
 </ul>
-</li>
-</ul>
 <h2 id="_3">选型原因</h2>
 <ul>
 <li><strong>微服务支持</strong>: Spring Boot + Nacos 提供完整的微服务解决方案。</li>
-<li><strong>性能与扩展</strong>: RabbitMQ 和 Elasticsearch 提升异步处理和搜索能力。</li>
+<li><strong>性能与扩展</strong>: Redis 提升缓存性能，RabbitMQ 和 Elasticsearch 优化异步和搜索。</li>
 <li><strong>可观测性</strong>: ELK 提供日志分析，XXL-JOB 确保定时任务可靠。</li>
+</ul>
+<h2 id="_4">相关知识</h2>
+<ul>
+<li><a href="java-language.md">Java 语言</a></li>
+<li><a href="../database/">数据库</a></li>
+<li><a href="../network/">网络</a></li>
+<li><a href="../os/">操作系统</a></li>
+<li><a href="../frameworks/">框架</a></li>
+<li><a href="../components/">组件</a></li>
 </ul>
 
 
