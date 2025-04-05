@@ -5,10 +5,32 @@ theme:
     primary: teal
 nav:
   - Home: index.md
-  - Tech Stack: tech-stack.md
-  - APIs: apis.md
-  - Testing: testing.md
-  - Deployment: deployment.md
+  - Online Judge Project:
+      - Product Requirements: requirements.md
+      - System Architecture:
+          - Architecture Design: architecture.md
+          - Tech Stack:
+              - Backend: backend-tech.md
+              - Frontend: frontend-tech.md
+      - Development:
+          - Development Steps: dev-steps.md
+          - Project Structure: project-structure.md
+          - Backend Development: backend-dev.md
+          - Frontend Development: frontend-dev.md
+      - APIs: apis.md
+      - Testing: testing.md
+      - Deployment: deployment.md
+  - Knowledge Base:
+      - Java Language: java-language.md
+      - Database: database.md
+      - Network: network.md
+      - Operating System: os.md
+      - Frameworks: frameworks.md
+      - Components: components.md
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yituanxing
