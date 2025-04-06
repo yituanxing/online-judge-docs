@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>RISC-V Processor (Chisel) - Yituanxing's Tech Odyssey</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "RISC-V Processor (Chisel)";
+        var mkdocs_page_input_path = "riscv-chisel-reflection.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Yituanxing's Tech Odyssey
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Online Judge Project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../requirements/">Product Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >System Architecture</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../architecture/">Architecture Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tech Stack</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../backend-tech/">Backend</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../frontend-tech/">Frontend</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Development</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../dev-steps/">Development Steps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../project-structure/">Project Structure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../backend-dev/">Backend Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../frontend-dev/">Frontend Development</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../apis/">APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/">Testing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../user-guide/">User Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Knowledge Base</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-language/">Java Language</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../database/">Database</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">Operating System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../frameworks/">Frameworks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../algorithms.md">Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../security.md">Security</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">C Language Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Hardware & Simulation</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../nemu-reflection/">NEMU Simulator (YSYX)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">RISC-V Processor (Chisel)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">专栏导航</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">前言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">项目概述</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">学到的知识</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-risc-v">1. RISC-V 指令集与体系结构</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-chisel">2. Chisel 语言特性</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 硬件设计方法</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 软件与硬件协同</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">掌握的技能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-chisel">1. Chisel 编程</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 硬件调试</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 项目管理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 系统化设计</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从软件到硬件的转变</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 解决问题的能力</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 耐心与细致</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">项目成果</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">下一步计划</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">结语</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Data Structures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../seqlist-reflection/">Sequential List</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-reflection/">Student Mgmt (Linked List)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-v2-reflection/">Student Mgmt V2 (File)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../contact-management-reflection/">Contact Mgmt</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Games</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../tic-tac-toe-reflection/">Tic-Tac-Toe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../plane-game-reflection/">Plane Shooting</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Yituanxing's Tech Odyssey</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">C Language Projects</li>
+          <li class="breadcrumb-item">Hardware & Simulation</li>
+      <li class="breadcrumb-item active">RISC-V Processor (Chisel)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="risc-v-chisel">RISC-V 处理器设计总结 —— 使用 Chisel 的实践与成长</h1>
+<p><strong>作者</strong>: dly<br />
+<strong>完成日期</strong>: 2025-04-06<br />
+<strong>分类专栏</strong>: Chisel 学习与实践<br />
+<strong>标签</strong>: RISC-V, Chisel, 单周期处理器, 硬件设计, 学习总结<br />
+<strong>版权</strong>: 本文原创，转载请注明出处</p>
+<hr />
+<h2 id="_1">专栏导航</h2>
+<p>本系列专栏 <strong>“Chisel 学习与实践”</strong> 记录了我使用 Chisel 进行硬件设计的学习历程，欢迎订阅以查看更多内容。</p>
+<hr />
+<h2 id="_2">前言</h2>
+<p>在完成基于 Chisel 的 RISC-V 处理器设计后，我成功实现了一个支持 RV32I 指令集的单周期处理器。这个项目不仅让我深入理解了 RISC-V 架构和硬件描述语言（HDL）的应用，还提升了我的设计能力、调试技巧和系统化思维。以下是我在项目中学到的知识和技能的总结。</p>
+<hr />
+<h2 id="_3">项目概述</h2>
+<p>我设计了一个单周期 RISC-V 处理器，使用 Chisel 语言实现，支持 RV32I 基本指令集。处理器能够在每个时钟周期完成一条指令的取指、解码、执行和写回。项目代码最终生成了 Verilog 文件，并通过测试验证了功能，例如运行递归斐波那契数列计算。</p>
+<p>主要模块包括：
+- <strong>PC 寄存器</strong>：管理指令地址。
+- <strong>指令内存</strong>：存储和读取指令。
+- <strong>译码器</strong>：解析指令。
+- <strong>寄存器堆</strong>：存储操作数。
+- <strong>ALU</strong>：执行运算。
+- <strong>数据内存</strong>：处理加载/存储。
+- <strong>控制单元</strong>：协调数据通路。</p>
+<hr />
+<h2 id="_4">学到的知识</h2>
+<h3 id="1-risc-v">1. RISC-V 指令集与体系结构</h3>
+<ul>
+<li><strong>RV32I 指令</strong>：掌握了 37 条基本指令的编码和功能，包括算术运算（ADD、SUB）、逻辑运算（AND、OR）、分支（BEQ、BNE）、跳转（JAL、JALR）和内存访问（LW、SW）。</li>
+<li><strong>单周期设计</strong>：理解了单周期处理器的时序要求，所有操作在一个时钟周期内完成，数据通路需精心设计以避免冲突。</li>
+<li><strong>硬件行为</strong>：深入学习了 PC 更新、寄存器读写和内存操作的硬件实现逻辑。</li>
+</ul>
+<h3 id="2-chisel">2. Chisel 语言特性</h3>
+<ul>
+<li><strong>面向对象设计</strong>：使用 Chisel 的 Module 和 Bundle 构建模块化硬件，相比传统 Verilog 更简洁高效。</li>
+<li><strong>参数化</strong>：通过 Scala 的特性实现了参数化设计（如位宽、内存大小），增强了代码的复用性。</li>
+<li><strong>硬件生成</strong>：理解了 Chisel 如何将 Scala 代码编译为 Verilog，掌握了 <code>sbt run</code> 生成硬件描述的过程。</li>
+<li><strong>测试框架</strong>：使用 ChiselTest 编写单元测试，验证每个模块的功能。</li>
+</ul>
+<h3 id="3">3. 硬件设计方法</h3>
+<ul>
+<li><strong>模块化思维</strong>：将处理器分解为独立模块，分别实现和测试，降低了复杂度。</li>
+<li><strong>数据通路与控制</strong>：学会了设计数据通路（如 ALU 输入选择）和控制信号（如 RegWrite、MemRead）。</li>
+<li><strong>时序与组合逻辑</strong>：理解了 Chisel 中组合逻辑（<code>:=</code>）和时序逻辑（<code>RegInit</code>）的区别。</li>
+</ul>
+<h3 id="4">4. 软件与硬件协同</h3>
+<ul>
+<li><strong>程序加载</strong>：学会了将 C 程序编译为 RISC-V 二进制，并通过 <code>loadMemoryFromFile</code> 加载到指令内存。</li>
+<li><strong>验证方法</strong>：通过运行斐波那契数列等程序，验证处理器的功能完整性。</li>
+</ul>
+<hr />
+<h2 id="_5">掌握的技能</h2>
+<h3 id="1-chisel">1. Chisel 编程</h3>
+<ul>
+<li>熟练使用 Chisel 构造硬件模块，例如：
+  <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PCReg</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Module</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">IO</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="nc">Bundle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">addrOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Output</span><span class="p">(</span><span class="nc">UInt</span><span class="p">(</span><span class="mi">32</span><span class="p">.</span><span class="nc">W</span><span class="p">))</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">addrTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Input</span><span class="p">(</span><span class="nc">UInt</span><span class="p">(</span><span class="mi">32</span><span class="p">.</span><span class="nc">W</span><span class="p">))</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="n">ctrlJump</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Input</span><span class="p">(</span><span class="nc">Bool</span><span class="p">())</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="n">regPC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">RegInit</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nc">U</span><span class="p">(</span><span class="mi">32</span><span class="p">.</span><span class="nc">W</span><span class="p">))</span>
+<span class="w">    </span><span class="n">regPC</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nc">Mux</span><span class="p">(</span><span class="n">io</span><span class="p">.</span><span class="n">ctrlJump</span><span class="p">,</span><span class="w"> </span><span class="n">io</span><span class="p">.</span><span class="n">addrTarget</span><span class="p">,</span><span class="w"> </span><span class="n">regPC</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="nc">U</span><span class="p">)</span>
+<span class="w">    </span><span class="n">io</span><span class="p">.</span><span class="n">addrOut</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">regPC</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>掌握了 Chisel 的信号连接（<code>&lt;&gt;</code> 和 <code>:=</code>）和条件逻辑（<code>when</code>、<code>Mux</code>）。</li>
+</ul>
+<h3 id="2">2. 硬件调试</h3>
+<ul>
+<li>使用 ChiselTest 编写测试用例，例如：
+  <div class="highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="nc">PCReg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dut</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="n">dut</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">ctrlJump</span><span class="p">.</span><span class="n">poke</span><span class="p">(</span><span class="kc">false</span><span class="p">.</span><span class="nc">B</span><span class="p">)</span>
+<span class="w">    </span><span class="n">dut</span><span class="p">.</span><span class="n">clock</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">dut</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">addrOut</span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="mi">4</span><span class="p">.</span><span class="nc">U</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>通过波形分析和日志打印定位问题。</li>
+</ul>
+<h3 id="3_1">3. 项目管理</h3>
+<ul>
+<li><strong>SBT</strong>：使用 Scala Build Tool 管理项目依赖和编译流程。</li>
+<li><strong>Git</strong>：记录代码版本，提交清晰的 commit 信息。</li>
+<li><strong>文档化</strong>：编写注释和 README，提升代码可读性。</li>
+</ul>
+<h3 id="4_1">4. 系统化设计</h3>
+<ul>
+<li>从顶层设计到模块实现，逐步细化，确保每个部分功能正确后再集成。</li>
+<li>优化设计，例如通过全局配置文件（<code>Configs.scala</code>）提高扩展性。</li>
+</ul>
+<hr />
+<h2 id="_6">成长与反思</h2>
+<h3 id="1">1. 从软件到硬件的转变</h3>
+<p>最初，我习惯于软件编程的思维，面对硬件设计的并行性和时序要求感到不适应。通过学习 Chisel 和 RISC-V，我逐渐掌握了硬件描述的逻辑，完成了从“写程序”到“设计电路”的转变。</p>
+<h3 id="2_1">2. 解决问题的能力</h3>
+<p>在实现过程中，我遇到了诸如控制信号错误、内存地址不对齐等问题。通过查阅 RISC-V 规范、调试波形和参考社区资源，我学会了系统化地分析和解决问题。</p>
+<h3 id="3_2">3. 耐心与细致</h3>
+<p>单周期处理器的设计需要精确连接数十个信号，稍有疏忽就会导致功能异常。这个过程让我更加注重细节，也培养了我的耐心。</p>
+<hr />
+<h2 id="_7">项目成果</h2>
+<ul>
+<li><strong>功能实现</strong>：支持 RV32I 指令集的单周期处理器，能运行斐波那契数列等程序(仅仅验证了斐波那契数列)。</li>
+<li><strong>测试验证</strong>：通过单元测试和整体测试，验证了设计的正确性。</li>
+</ul>
+<hr />
+<h2 id="_8">下一步计划</h2>
+<ul>
+<li><strong>流水线设计</strong>：将单周期扩展为流水线处理器，提升性能。</li>
+<li><strong>特权指令</strong>：支持 M 模式和 CSR 寄存器，实现中断和异常处理。</li>
+<li><strong>硬件优化</strong>：探索如何减少关键路径延迟，提高时钟频率。</li>
+<li><strong>FPGA 实现</strong>：将设计部署到 FPGA 上，验证真实硬件行为。</li>
+</ul>
+<hr />
+<h2 id="_9">结语</h2>
+<p>通过 Chisel 实现 RISC-V 处理器，我不仅掌握了硬件设计的核心技能，还体会到了从零开始构建一个 CPU 的成就感。这个项目是我学习道路上的重要一步，未来我将继续深入硬件领域，追求更高的技术挑战。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../nemu-reflection/" class="btn btn-neutral float-left" title="NEMU Simulator (YSYX)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../seqlist-reflection/" class="btn btn-neutral float-right" title="Sequential List">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../nemu-reflection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../seqlist-reflection/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Tic-Tac-Toe - Yituanxing's Tech Odyssey</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tic-Tac-Toe";
+        var mkdocs_page_input_path = "tic-tac-toe-reflection.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Yituanxing's Tech Odyssey
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Online Judge Project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../requirements/">Product Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >System Architecture</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../architecture/">Architecture Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tech Stack</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../backend-tech/">Backend</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../frontend-tech/">Frontend</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Development</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../dev-steps/">Development Steps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../project-structure/">Project Structure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../backend-dev/">Backend Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../frontend-dev/">Frontend Development</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../apis/">APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/">Testing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../user-guide/">User Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Knowledge Base</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-language/">Java Language</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../database/">Database</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">Operating System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../frameworks/">Frameworks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../algorithms.md">Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../security.md">Security</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">C Language Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Hardware & Simulation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../nemu-reflection/">NEMU Simulator (YSYX)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../riscv-chisel-reflection/">RISC-V Processor (Chisel)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Data Structures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../seqlist-reflection/">Sequential List</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-reflection/">Student Mgmt (Linked List)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-v2-reflection/">Student Mgmt V2 (File)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../contact-management-reflection/">Contact Mgmt</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Games</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Tic-Tac-Toe</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">专栏导航</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">前言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">项目概述</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">学到的知识</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 游戏逻辑设计</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 输入输出处理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 程序控制流</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">掌握的技能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 游戏逻辑实现</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与测试</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 用户体验设计</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从算法到应用</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 输入处理的挑战</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 简洁与效率</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">项目成果</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">下一步计划</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">结语</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../plane-game-reflection/">Plane Shooting</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Yituanxing's Tech Odyssey</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">C Language Projects</li>
+          <li class="breadcrumb-item">Games</li>
+      <li class="breadcrumb-item active">Tic-Tac-Toe</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="c">井字棋游戏总结 —— C 语言与游戏开发的实践</h1>
+<p><strong>作者</strong>: [你的名字或昵称，如需填写请提供]<br />
+<strong>完成日期</strong>: 2025-04-06<br />
+<strong>分类专栏</strong>: C 语言学习笔记<br />
+<strong>标签</strong>: C 语言, 井字棋, 游戏开发, 二维数组, 逻辑设计<br />
+<strong>版权</strong>: 本文原创，转载请注明出处</p>
+<hr />
+<h2 id="_1">专栏导航</h2>
+<p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
+<hr />
+<h2 id="_2">前言</h2>
+<p>我使用 C 语言实现了一个简单的井字棋（Tic-Tac-Toe）游戏，支持玩家与电脑对战，包含棋盘初始化、显示、下棋和胜负判断功能。这个项目让我掌握了二维数组的使用、游戏逻辑的设计以及 C 语言的基本输入输出操作。以下是我的学习与成长总结。</p>
+<hr />
+<h2 id="_3">项目概述</h2>
+<p>该井字棋游戏是一个基于命令行的两人对战游戏（玩家 vs 电脑），使用 3x3 的棋盘实现。玩家用 <code>*</code> 表示，电脑用 <code>#</code> 表示。游戏提供以下功能：
+1. <strong>初始化棋盘</strong>：将棋盘清空为空格。
+2. <strong>显示棋盘</strong>：打印当前棋盘状态。
+3. <strong>玩家下棋</strong>：输入坐标落子。
+4. <strong>电脑下棋</strong>：随机选择空位落子。
+5. <strong>胜负判断</strong>：检查是否有赢家或平局。</p>
+<p>代码分为头文件（<code>game.h</code>）、实现文件（<code>game.c</code>）和主文件（<code>test.c</code>），总计约 200 行。核心数据结构是 3x3 的字符数组 <code>char Board[ROW][COL]</code>。</p>
+<hr />
+<h2 id="_4">学到的知识</h2>
+<h3 id="1-c">1. C 语言核心特性</h3>
+<ul>
+<li><strong>二维数组</strong>：使用 <code>char Board[ROW][COL]</code> 表示棋盘，理解了多维数组的内存布局。</li>
+<li><strong>随机数生成</strong>：通过 <code>srand</code> 和 <code>rand</code> 实现电脑的随机落子。
+  <div class="highlight"><pre><span></span><code><span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">ROW</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>函数模块化</strong>：将功能拆分为独立函数（如 <code>InitBoard</code>、<code>DisPlayBoard</code>），提高了代码可读性。</li>
+</ul>
+<h3 id="2">2. 游戏逻辑设计</h3>
+<ul>
+<li><strong>棋盘表示</strong>：用空格（<code>' '</code>）表示空位，<code>*</code> 表示玩家，<code>#</code> 表示电脑。</li>
+<li><strong>胜负条件</strong>：检查行、列和对角线是否三子连线，或棋盘是否已满。
+  <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="nf">IsWin</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// ... 检查列和对角线</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsFull</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="sc">&#39;Q&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>状态返回</strong>：用字符表示游戏状态（<code>*</code> 玩家胜，<code>#</code> 电脑胜，<code>Q</code> 平局，<code>C</code> 继续）。</li>
+</ul>
+<h3 id="3">3. 输入输出处理</h3>
+<ul>
+<li><strong>格式化显示</strong>：设计了棋盘的打印格式，使用 <code>|</code> 和 <code>---</code> 分隔格子。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">DisPlayBoard</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; %c &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;|&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;---&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;|&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>输入验证</strong>：检查玩家输入的坐标是否合法和未被占用。</li>
+</ul>
+<h3 id="4">4. 程序控制流</h3>
+<ul>
+<li><strong>循环与分支</strong>：使用 <code>do-while</code> 和 <code>switch</code> 实现菜单循环，使用 <code>while</code> 控制游戏进程。</li>
+<li><strong>边界检查</strong>：确保玩家输入在 1-3 范围内，并转换为数组索引（0-2）。</li>
+</ul>
+<hr />
+<h2 id="_5">掌握的技能</h2>
+<h3 id="1-c_1">1. C 编程能力</h3>
+<ul>
+<li>熟练操作二维数组，例如初始化：
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">InitBoard</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">Board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>掌握了指针传递数组给函数。</li>
+</ul>
+<h3 id="2_1">2. 游戏逻辑实现</h3>
+<ul>
+<li>实现了随机电脑下棋和胜负判断逻辑。</li>
+<li>处理了玩家输入的异常情况（如坐标被占用）。</li>
+</ul>
+<h3 id="3_1">3. 调试与测试</h3>
+<ul>
+<li>通过打印棋盘状态验证每一步下棋的正确性。</li>
+<li>测试了所有胜负情况（行、列、对角线和平局）。</li>
+</ul>
+<h3 id="4_1">4. 用户体验设计</h3>
+<ul>
+<li>设计了直观的棋盘显示和简单的菜单交互。</li>
+<li>添加了提示信息（如“坐标被占用”）提升交互性。</li>
+</ul>
+<hr />
+<h2 id="_6">成长与反思</h2>
+<h3 id="1">1. 从算法到应用</h3>
+<p>最初，我只熟悉基本的循环和条件语句，通过这个项目，我学会了将逻辑转化为游戏规则，体会到了编程的趣味性。</p>
+<h3 id="2_2">2. 输入处理的挑战</h3>
+<p>玩家输入坐标时，我曾忘记减 1 转换为数组索引，导致越界。通过调试和调整，我掌握了用户输入与程序逻辑的协调。</p>
+<h3 id="3_2">3. 简洁与效率</h3>
+<p>电脑下棋使用简单随机算法，虽然功能正确，但缺乏策略性，这让我开始思考如何优化 AI。</p>
+<hr />
+<h2 id="_7">项目成果</h2>
+<ul>
+<li><strong>功能完整</strong>：实现了井字棋的完整流程，包括初始化、下棋和胜负判断。</li>
+<li><strong>代码质量</strong>：约 200 行 C 代码，结构清晰，注释完善。</li>
+<li><strong>测试验证</strong>：通过多次对战验证了玩家和电脑的胜负逻辑。</li>
+</ul>
+<hr />
+<h2 id="_8">下一步计划</h2>
+<ul>
+<li><strong>智能 AI</strong>：改进 <code>ComputerMove</code>，实现简单的策略（如优先堵截玩家或争取胜利）。</li>
+<li><strong>动态棋盘</strong>：支持可变大小的棋盘（如 5x5）。</li>
+<li><strong>多人模式</strong>：增加玩家对玩家的模式。</li>
+<li><strong>界面优化</strong>：尝试使用图形库（如 SDL）替代命令行显示。</li>
+</ul>
+<hr />
+<h2 id="_9">结语</h2>
+<p>这个井字棋游戏是我学习 C 语言的一次有趣实践。它让我从基础语法走向了小型游戏开发，增强了对数组和逻辑设计的理解。未来，我希望挑战更复杂的游戏项目，进一步提升编程能力。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../contact-management-reflection/" class="btn btn-neutral float-left" title="Contact Mgmt"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../plane-game-reflection/" class="btn btn-neutral float-right" title="Plane Shooting">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../contact-management-reflection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../plane-game-reflection/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

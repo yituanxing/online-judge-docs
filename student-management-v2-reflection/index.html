@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Student Mgmt V2 (File) - Yituanxing's Tech Odyssey</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Student Mgmt V2 (File)";
+        var mkdocs_page_input_path = "student-management-v2-reflection.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Yituanxing's Tech Odyssey
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Online Judge Project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../requirements/">Product Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >System Architecture</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../architecture/">Architecture Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tech Stack</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../backend-tech/">Backend</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../frontend-tech/">Frontend</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Development</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../dev-steps/">Development Steps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../project-structure/">Project Structure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../backend-dev/">Backend Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../frontend-dev/">Frontend Development</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../apis/">APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/">Testing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../user-guide/">User Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Knowledge Base</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-language/">Java Language</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../database/">Database</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">Operating System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../frameworks/">Frameworks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../algorithms.md">Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../security.md">Security</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">C Language Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Hardware & Simulation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../nemu-reflection/">NEMU Simulator (YSYX)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../riscv-chisel-reflection/">RISC-V Processor (Chisel)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Data Structures</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../seqlist-reflection/">Sequential List</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-reflection/">Student Mgmt (Linked List)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Student Mgmt V2 (File)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">专栏导航</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">前言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">项目概述</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">学到的知识</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 数据结构与算法</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 文件操作</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 界面设计</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">掌握的技能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 数据管理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 文件处理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 调试与优化</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从数组到链表</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 文件操作的挑战</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 效率与设计权衡</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">项目成果</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">下一步计划</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">结语</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../contact-management-reflection/">Contact Mgmt</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Games</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../tic-tac-toe-reflection/">Tic-Tac-Toe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../plane-game-reflection/">Plane Shooting</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Yituanxing's Tech Odyssey</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">C Language Projects</li>
+          <li class="breadcrumb-item">Data Structures</li>
+      <li class="breadcrumb-item active">Student Mgmt V2 (File)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="v2-c">学生成绩管理系统总结（V2） —— C 语言与链表的实践</h1>
+<p><strong>作者</strong>: dly<br />
+<strong>完成日期</strong>: 2025-04-06<br />
+<strong>分类专栏</strong>: C 语言学习笔记<br />
+<strong>标签</strong>: C 语言, 学生管理系统, 链表, 文件操作, 数据管理<br />
+<strong>版权</strong>: 本文原创，转载请注明出处</p>
+<hr />
+<h2 id="_1">专栏导航</h2>
+<p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
+<hr />
+<h2 id="_2">前言</h2>
+<p>我使用 C 语言实现了一个基于单向链表的学生成绩管理系统，支持添加、显示、排序、删除、查找、修改学生信息，并通过文件实现数据持久化。这个项目让我深入掌握了链表操作、文件读写和界面设计的技能。以下是我的学习与成长总结。</p>
+<hr />
+<h2 id="_3">项目概述</h2>
+<p>该系统是一个命令行工具，使用单向链表存储学生信息（学号、姓名、成绩），提供以下功能：
+1. <strong>添加学生</strong>：输入学生信息并插入链表。
+2. <strong>显示信息</strong>：格式化输出所有学生记录。
+3. <strong>按成绩排序</strong>：按成绩降序排列。
+4. <strong>删除学生</strong>：根据学号删除学生。
+5. <strong>查找学生</strong>：按学号或姓名查找。
+6. <strong>修改信息</strong>：修改指定学生的学号、姓名或成绩。
+7. <strong>文件存取</strong>：从文件读取数据并保存修改。</p>
+<p>代码分为头文件（<code>head.h</code>）和实现文件（<code>main.c</code> 等），总计约 350 行。核心数据结构是链表节点 <code>struct node</code>，包含学生信息和指针。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">student</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">MAX_NUM</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="n">MAX_NAME</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">student</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<hr />
+<h2 id="_4">学到的知识</h2>
+<h3 id="1-c">1. C 语言核心特性</h3>
+<ul>
+<li><strong>链表实现</strong>：使用 <code>malloc</code> 动态创建节点，通过指针连接形成单向链表。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">increase</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>字符串操作</strong>：使用 <code>strcmp</code> 比较字符串，<code>strlen</code> 计算长度。</li>
+<li><strong>全局变量</strong>：通过 <code>N</code>、<code>N_num_max</code> 和 <code>N_name_max</code> 跟踪学生人数和最大字段长度。</li>
+</ul>
+<h3 id="2">2. 数据结构与算法</h3>
+<ul>
+<li><strong>单向链表</strong>：实现了头插法添加节点和遍历删除。</li>
+<li><strong>简单排序</strong>：使用冒泡排序思想交换节点数据（非指针交换）。
+  <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">p2</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p1</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p2</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3">3. 文件操作</h3>
+<ul>
+<li><strong>读写文件</strong>：使用 <code>fscanf</code> 和 <code>fprintf</code> 实现数据的持久化存储。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;student2.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">N_num_max</span><span class="p">,</span><span class="w"> </span><span class="n">N_name_max</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s %s %.1f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">score</span><span class="p">);</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>文件创建</strong>：若文件不存在，自动创建并初始化。</li>
+</ul>
+<h3 id="4">4. 界面设计</h3>
+<ul>
+<li><strong>格式化输出</strong>：动态调整显示宽度以适应不同长度的学号和姓名。</li>
+<li><strong>菜单交互</strong>：通过 <code>switch</code> 和循环实现用户选择。</li>
+</ul>
+<hr />
+<h2 id="_5">掌握的技能</h2>
+<h3 id="1-c_1">1. C 编程能力</h3>
+<ul>
+<li>熟练操作链表，例如删除节点：
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">decrease</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="o">*</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>掌握了输入输出格式化（如 <code>%.1f</code> 控制成绩精度）。</li>
+</ul>
+<h3 id="2_1">2. 数据管理</h3>
+<ul>
+<li>动态跟踪字段长度（<code>N_num_max</code>、<code>N_name_max</code>），优化显示效果。</li>
+<li>实现链表的增删改查功能。</li>
+</ul>
+<h3 id="3_1">3. 文件处理</h3>
+<ul>
+<li>将链表数据保存到文件并从文件中恢复。</li>
+<li>处理文件打开失败的情况，增强程序健壮性。</li>
+</ul>
+<h3 id="4_1">4. 调试与优化</h3>
+<ul>
+<li>通过打印中间结果（如链表为空提示）定位问题。</li>
+<li>优化显示格式，使用分隔线和对齐提升可读性。</li>
+</ul>
+<hr />
+<h2 id="_6">成长与反思</h2>
+<h3 id="1">1. 从数组到链表</h3>
+<p>之前我用数组实现类似系统，这次使用链表让我体会到动态内存的灵活性，尽管增加了指针管理的复杂性。</p>
+<h3 id="2_2">2. 文件操作的挑战</h3>
+<p>读取文件时曾因格式不匹配导致数据混乱，调整为先写入总数和最大长度后问题解决，这让我认识到文件格式设计的重要性。</p>
+<h3 id="3_2">3. 效率与设计权衡</h3>
+<p>排序时直接交换数据而非节点指针，虽然简单但不够高效，这让我开始思考链表排序的优化方法。</p>
+<hr />
+<h2 id="_7">项目成果</h2>
+<ul>
+<li><strong>功能完整</strong>：实现了所有要求的 7 个功能，支持数据持久化。</li>
+<li><strong>代码质量</strong>：约 350 行 C 代码，结构清晰，包含错误处理。</li>
+<li><strong>测试验证</strong>：通过手动输入和文件读写验证了系统的稳定性。</li>
+</ul>
+<hr />
+<h2 id="_8">下一步计划</h2>
+<ul>
+<li><strong>高效排序</strong>：使用指针交换实现真正的链表排序（如插入排序）。</li>
+<li><strong>数据校验</strong>：增加学号唯一性检查。</li>
+<li><strong>界面改进</strong>：集成颜色和光标控制（代码中已注释）。</li>
+<li><strong>异常处理</strong>：完善内存分配失败的提示。</li>
+</ul>
+<hr />
+<h2 id="_9">结语</h2>
+<p>这个学生成绩管理系统是我学习 C 语言的一次深入实践。它让我从基础语法走向了链表管理和文件操作，增强了对数据结构的理解和编程信心。未来，我希望优化代码并探索更复杂的管理系统。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../student-management-reflection/" class="btn btn-neutral float-left" title="Student Mgmt (Linked List)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contact-management-reflection/" class="btn btn-neutral float-right" title="Contact Mgmt">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../student-management-reflection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../contact-management-reflection/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

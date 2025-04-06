@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Plane Shooting - Yituanxing's Tech Odyssey</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Plane Shooting";
+        var mkdocs_page_input_path = "plane-game-reflection.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Yituanxing's Tech Odyssey
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Online Judge Project</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../requirements/">Product Requirements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >System Architecture</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../architecture/">Architecture Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Tech Stack</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../backend-tech/">Backend</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../frontend-tech/">Frontend</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Development</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../dev-steps/">Development Steps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../project-structure/">Project Structure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../backend-dev/">Backend Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../frontend-dev/">Frontend Development</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../apis/">APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../testing/">Testing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../user-guide/">User Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Knowledge Base</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../java-language/">Java Language</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../database/">Database</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">Network</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">Operating System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../frameworks/">Frameworks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../algorithms.md">Algorithms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../security.md">Security</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">C Language Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Hardware & Simulation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../nemu-reflection/">NEMU Simulator (YSYX)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../riscv-chisel-reflection/">RISC-V Processor (Chisel)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Data Structures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../seqlist-reflection/">Sequential List</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-reflection/">Student Mgmt (Linked List)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../student-management-v2-reflection/">Student Mgmt V2 (File)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../contact-management-reflection/">Contact Mgmt</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Games</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../tic-tac-toe-reflection/">Tic-Tac-Toe</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Plane Shooting</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">专栏导航</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">前言</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">项目概述</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">学到的知识</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言高级特性</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-windows">2. Windows 控制台编程</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 游戏逻辑设计</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 时间与随机性</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">掌握的技能</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 控制台界面设计</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 游戏开发技巧</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 调试与优化</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从简单到复杂</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 控制台开发的挑战</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 设计思维的提升</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">项目成果</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">下一步计划</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">结语</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Yituanxing's Tech Odyssey</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">C Language Projects</li>
+          <li class="breadcrumb-item">Games</li>
+      <li class="breadcrumb-item active">Plane Shooting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="c">飞机大战游戏总结 —— C 语言与控制台开发的实践</h1>
+<p><strong>作者</strong>: dly<br />
+<strong>完成日期</strong>: 2025-04-06<br />
+<strong>分类专栏</strong>: C 语言学习笔记<br />
+<strong>标签</strong>: C 语言, 飞机大战, 游戏开发, 链表, Windows 控制台<br />
+<strong>版权</strong>: 本文原创，转载请注明出处</p>
+<hr />
+<h2 id="_1">专栏导航</h2>
+<p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
+<hr />
+<h2 id="_2">前言</h2>
+<p>我使用 C 语言实现了一个基于 Windows 控制台的“飞机大战”游戏，支持玩家操控飞机发射子弹击落敌机，并提供多种模式选择。这个项目让我掌握了动态链表、控制台操作、实时更新逻辑以及游戏设计的技能。以下是我的学习与成长总结。</p>
+<hr />
+<h2 id="_3">项目概述</h2>
+<p>“飞机大战”是一个基于命令行的射击游戏，使用 20x30 的控制台界面。玩家控制飞机（<code>Ж</code>）发射子弹（<code>|</code>）击落敌机（<code>Ψ</code>），包含以下功能：
+1. <strong>初始化</strong>：设置飞机、子弹和敌机的初始位置。
+2. <strong>显示界面</strong>：实时更新游戏画面和得分。
+3. <strong>玩家控制</strong>：通过 WASD 移动飞机，空格发射子弹。
+4. <strong>敌机移动</strong>：敌机随机生成并下落。
+5. <strong>子弹行为</strong>：支持普通发射、追踪和“离手”模式。
+6. <strong>模式选择</strong>：
+    - 普通模式（难度可选）。
+    - 破解模式（子弹追踪敌机）。
+    - 离手模式（自动瞄准）。
+    - 复活模式（撞毁后复活）。
+7. <strong>碰撞检测</strong>：检测子弹击中敌机或飞机撞毁。</p>
+<p>代码分为主文件和部分函数实现，总计约 400 行，使用了链表管理复活模式下的飞机。</p>
+<hr />
+<h2 id="_4">学到的知识</h2>
+<h3 id="1-c">1. C 语言高级特性</h3>
+<ul>
+<li><strong>动态内存与链表</strong>：使用 <code>malloc</code> 创建链表节点，支持复活模式下的飞机动态生成。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">AddNode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">WIDTH</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plane</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="p">;</span>
+<span class="w">    </span><span class="n">plane</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pnew</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>指针操作</strong>：通过指针更新飞机和子弹位置。</li>
+</ul>
+<h3 id="2-windows">2. Windows 控制台编程</h3>
+<ul>
+<li><strong>光标控制</strong>：使用 <code>gotoxy</code> 调整光标位置，实现实时画面更新。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">gotoxy</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">COORD</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">};</span>
+<span class="w">    </span><span class="n">SetConsoleCursorPosition</span><span class="p">(</span><span class="n">GetStdHandle</span><span class="p">(</span><span class="n">STD_OUTPUT_HANDLE</span><span class="p">),</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>颜色设置</strong>：通过 <code>SetConsoleTextAttribute</code> 为不同元素设置颜色。</li>
+<li><strong>隐藏光标</strong>：使用 <code>SetConsoleCursorInfo</code> 提升界面美观性。</li>
+<li><strong>键盘输入</strong>：通过 <code>_kbhit</code> 和 <code>_getch</code> 实现非阻塞输入检测。</li>
+</ul>
+<h3 id="3">3. 游戏逻辑设计</h3>
+<ul>
+<li><strong>实时更新</strong>：将游戏分为输入相关（<code>updateWithInput</code>）和非输入相关（<code>updateWitoutIput</code>）逻辑。</li>
+<li><strong>碰撞检测</strong>：检查子弹与敌机、飞机与敌机的重叠。</li>
+<li><strong>模式实现</strong>：<ul>
+<li>普通模式：子弹直线发射。</li>
+<li>追踪模式：子弹自动追踪敌机。</li>
+<li>离手模式：飞机自动对齐敌机。</li>
+<li>复活模式：使用链表生成新飞机。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4">4. 时间与随机性</h3>
+<ul>
+<li><strong>随机生成</strong>：使用 <code>srand</code> 和 <code>rand</code> 控制敌机位置和复活坐标。</li>
+<li><strong>速度控制</strong>：通过计数器 <code>speed</code> 和 <code>NUM</code> 调节敌机下落速度。</li>
+</ul>
+<hr />
+<h2 id="_5">掌握的技能</h2>
+<h3 id="1-c_1">1. C 编程能力</h3>
+<ul>
+<li>实现复杂逻辑，例如追踪子弹移动：
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">bulletMove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">enemy_x</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_x</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">enemy_x</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_x</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">enemy_y</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_y</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">enemy_y</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_y</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>熟练使用结构体和指针管理游戏状态。</li>
+</ul>
+<h3 id="2">2. 控制台界面设计</h3>
+<ul>
+<li>设计了动态更新的游戏界面和侧边提示。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">scoreandtips</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">gotoxy</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">color</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;游戏得分：%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gotoxy</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;用W A S D 分别控制飞机的移动&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>优化显示，避免闪烁（通过 <code>gotoxy</code> 代替 <code>system("cls")</code>）。</li>
+</ul>
+<h3 id="3_1">3. 游戏开发技巧</h3>
+<ul>
+<li>实现了多模式选择，增强了游戏可玩性。</li>
+<li>处理了边界条件（如飞机不出界、子弹超出屏幕）。</li>
+</ul>
+<h3 id="4_1">4. 调试与优化</h3>
+<ul>
+<li>通过打印坐标和状态调试碰撞检测。</li>
+<li>添加了模式选择界面和趣味提示（如“皮一下很开心”）。</li>
+</ul>
+<hr />
+<h2 id="_6">成长与反思</h2>
+<h3 id="1">1. 从简单到复杂</h3>
+<p>最初，我只熟悉基本的 C 语法，通过这个项目，我学会了整合输入、显示和逻辑更新，完成了首个交互式游戏。</p>
+<h3 id="2_1">2. 控制台开发的挑战</h3>
+<p>画面闪烁问题让我头疼，最终通过 <code>gotoxy</code> 局部更新解决，这让我认识到性能优化的重要性。</p>
+<h3 id="3_2">3. 设计思维的提升</h3>
+<p>实现多种模式让我开始思考如何平衡难度和趣味性，例如追踪模式太强，而普通模式略显单调。</p>
+<hr />
+<h2 id="_7">项目成果</h2>
+<ul>
+<li><strong>功能完整</strong>：实现了飞机移动、子弹发射、敌机生成和四种游戏模式。</li>
+<li><strong>代码质量</strong>：约 400 行 C 代码，结构清晰，包含多种交互元素。</li>
+<li><strong>测试验证</strong>：通过多次游戏测试验证了碰撞检测和模式切换的正确性。</li>
+</ul>
+<hr />
+<h2 id="_8">下一步计划</h2>
+<ul>
+<li><strong>智能敌机</strong>：让敌机有简单的移动策略（如左右移动）。</li>
+<li><strong>多子弹支持</strong>：支持同时发射多颗子弹。</li>
+<li><strong>音效改进</strong>：完善背景音乐播放（当前注释掉）。</li>
+<li><strong>图形化界面</strong>：尝试使用图形库（如 SDL）替代控制台。</li>
+</ul>
+<hr />
+<h2 id="_9">结语</h2>
+<p>“飞机大战”是我学习 C 语言的一次精彩实践。它让我从基础编程走向了游戏开发，掌握了控制台操作和动态数据管理的技能。这个项目不仅有趣，还增强了我的信心，未来我希望挑战更复杂的游戏设计。</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tic-tac-toe-reflection/" class="btn btn-neutral float-left" title="Tic-Tac-Toe"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../tic-tac-toe-reflection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
