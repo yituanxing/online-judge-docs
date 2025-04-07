@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -84,6 +85,34 @@
                   <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">User Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#c">C 端（用户端）使用指南</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">界面概览</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">使用步骤</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#b">B 端（管理端）使用指南</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">界面概览</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">用户管理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_6">题目管理</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_7">竞赛管理</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">使用步骤</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">注意事项</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Knowledge Base</span></p>
@@ -158,7 +187,127 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="_1">用户指南</h1>
+<p>欢迎使用 Online Judge 系统！本指南将帮助你快速上手系统的 <strong>C 端（用户端）</strong> 和 <strong>B 端（管理端）</strong>，分别面向普通用户和管理员。</p>
+<h2 id="c">C 端（用户端）使用指南</h2>
+<p>C 端是为普通用户设计的界面，主要用于刷题、查看题目列表、提交代码以及查看个人排名等功能。</p>
+<h3 id="_2">界面概览</h3>
+<p>C 端首页以直观的布局展示主要功能，包含题目列表、个人排名、公告和日历等模块。</p>
+<p><img alt="C 端首页" src="images/题目界面.png" /></p>
+<ul>
+<li><strong>顶部导航栏</strong>：包括“首页”、“题库”、“竞赛”等入口，右侧显示用户登录状态（例如“登录/注册”）。</li>
+<li><strong>公告模块</strong>：显示系统公告，如“初试部署”和“竞赛部署成功”。</li>
+<li><strong>题目列表</strong>：展示题目编号、标题、分类和难度，点击题目可进入答题页面。</li>
+<li><strong>日历和排名</strong>：右侧显示日历和个人排名信息，方便用户查看活动和自己的排名。</li>
+</ul>
+<h3 id="_3">使用步骤</h3>
+<ol>
+<li>
+<p><strong>登录/注册</strong>：</p>
+<ul>
+<li>点击右上角“登录/注册”，输入用户名和密码登录，或注册新账号。</li>
+<li>登录后，右上角会显示你的用户名（例如“管理员”）。</li>
+</ul>
+</li>
+<li>
+<p><strong>浏览题目</strong>：</p>
+<ul>
+<li>在“题目列表”中，选择感兴趣的题目（如“初试部署成功”）。</li>
+<li>点击“已解答”查看已完成题目，点击“未解答”筛选待解决题目。</li>
+</ul>
+</li>
+<li>
+<p><strong>提交代码</strong>：</p>
+<ul>
+<li>进入题目详情页后，编写代码并提交。</li>
+<li>系统会自动评测代码，并显示评测结果（例如“已通过”或“未通过”）。</li>
+</ul>
+</li>
+<li>
+<p><strong>查看排名</strong>：</p>
+<ul>
+<li>右侧“排行榜”模块显示你的排名和积分（例如“第 1 名，积分 50”）。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="b">B 端（管理端）使用指南</h2>
+<p>B 端是为管理员设计的界面，用于管理用户、题目、竞赛和系统设置等功能。</p>
+<h3 id="_4">界面概览</h3>
+<p>B 端界面以列表形式展示管理内容，方便管理员快速查看和操作。</p>
+<h4 id="_5">用户管理</h4>
+<p><img alt="B 端用户管理" src="images/用户管理.png" /></p>
+<ul>
+<li><strong>用户列表</strong>：展示用户 ID、用户名、邮箱、积分等信息。</li>
+<li><strong>操作选项</strong>：支持筛选用户（例如“创建日期”）、添加用户、编辑或删除用户。</li>
+</ul>
+<h4 id="_6">题目管理</h4>
+<p><img alt="B 端题目管理" src="images/题目管理.png" /></p>
+<ul>
+<li><strong>题目列表</strong>：展示题目 ID、标题、分类、创建时间等信息。</li>
+<li><strong>操作选项</strong>：支持筛选题目（例如“创建日期”）、添加题目、编辑或删除题目。</li>
+</ul>
+<h4 id="_7">竞赛管理</h4>
+<p><img alt="B 端竞赛管理" src="images/竞赛管理.png" /></p>
+<ul>
+<li><strong>竞赛列表</strong>：展示竞赛 ID、标题、分类、开始时间等信息。</li>
+<li><strong>操作选项</strong>：支持筛选竞赛、添加竞赛、编辑或删除竞赛。</li>
+</ul>
+<h3 id="_8">使用步骤</h3>
+<ol>
+<li>
+<p><strong>登录管理端</strong>：</p>
+<ul>
+<li>使用管理员账号登录 B 端，登录后进入管理仪表盘。</li>
+</ul>
+</li>
+<li>
+<p><strong>用户管理</strong>：</p>
+<ul>
+<li>在左侧导航栏选择“用户管理”。</li>
+<li>查看用户列表，点击“添加用户”创建新用户，或点击“编辑/删除”修改用户信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>题目管理</strong>：</p>
+<ul>
+<li>在左侧导航栏选择“题目管理”。</li>
+<li>查看题目列表，点击“添加题目”创建新题目，或点击“编辑/删除”修改题目内容。</li>
+</ul>
+</li>
+<li>
+<p><strong>竞赛管理</strong>：</p>
+<ul>
+<li>在左侧导航栏选择“竞赛管理”。</li>
+<li>查看竞赛列表，点击“添加竞赛”创建新竞赛，或点击“编辑/删除”修改竞赛信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>查看日志</strong>：</p>
+<ul>
+<li>在左侧导航栏选择“系统管理” -&gt; “日志”，查看系统操作记录。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="_9">注意事项</h2>
+<ul>
+<li>
+<p><strong>C 端用户</strong>：</p>
+<ul>
+<li>提交代码前，请确保代码符合题目要求，避免频繁提交导致系统压力。</li>
+<li>定期查看公告，了解系统更新或竞赛信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>B 端管理员</strong>：</p>
+<ul>
+<li>添加题目或竞赛时，确保信息准确，避免影响用户体验。</li>
+<li>定期清理无效用户或题目，保持系统高效运行。</li>
+</ul>
+</li>
+</ul>
+<p>如有问题，请联系管理员，邮箱：10656070@qq.com。</p>
               
             </div>
           </div><footer>

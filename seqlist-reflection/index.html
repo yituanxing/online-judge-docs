@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -127,11 +128,11 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2">2. 顺序表原理</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 链表操作逻辑</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3">3. 内存管理细节</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 输入输出处理</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4">4. 数据结构优缺点</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 内存管理</a>
     </li>
         </ul>
     </li>
@@ -141,19 +142,19 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 数据结构实现</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 测试与调试</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与测试</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 程序设计</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 内存管理</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从静态到动态</a>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从数组到链表</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 内存管理的挑战</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 时间复杂度的认识</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 效率的思考</a>
     </li>
         </ul>
     </li>
@@ -207,141 +208,130 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="c">顺序表实现总结 —— C 语言与动态数组的实践</h1>
-<p><strong>作者</strong>: dly<br />
+                <h1 id="c">头插法总结 —— C 语言与链表操作的实践</h1>
+<p><strong>作者</strong>: yituanxing<br />
 <strong>完成日期</strong>: 2025-04-06<br />
 <strong>分类专栏</strong>: C 语言学习笔记<br />
-<strong>标签</strong>: C 语言, 顺序表, 动态数组, 数据结构, 内存管理<br />
+<strong>标签</strong>: C 语言, 链表, 头插法, 动态内存, 数据结构<br />
 <strong>版权</strong>: 本文原创，转载请注明出处</p>
 <hr />
 <h2 id="_1">专栏导航</h2>
 <p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
 <hr />
 <h2 id="_2">前言</h2>
-<p>我使用 C 语言实现了一个动态顺序表（SeqList），基于数组支持元素的尾插、头插、尾删、头删等操作，并通过测试验证了功能。这个项目让我深入理解了动态数组的实现原理，掌握了 C 语言的内存管理、指针操作和数据结构的基本操作。以下是我的学习与成长总结。</p>
+<p>我使用 C 语言实现了一个简单的链表头插法示例，支持创建链表、头插节点和显示链表内容。这个项目让我掌握了链表的基本操作、动态内存管理以及 C 语言的指针应用。以下是我的学习与成长总结。</p>
 <hr />
 <h2 id="_3">项目概述</h2>
-<p>该顺序表是一个动态数组实现的线性表，支持以下功能：
-1. <strong>初始化</strong>：创建空的顺序表。
-2. <strong>尾插</strong>：在表尾添加元素。
-3. <strong>头插</strong>：在表头添加元素。
-4. <strong>尾删</strong>：删除表尾元素。
-5. <strong>头删</strong>：删除表头元素。
-6. <strong>打印</strong>：显示表中所有元素。
-7. <strong>销毁</strong>：释放内存并重置表。</p>
-<p>代码分为头文件（<code>SeqList.h</code>）、实现文件（<code>SeqList.c</code>）和测试文件（<code>test.c</code>），总计约 150 行。核心数据结构是 <code>SL</code>，包含动态数组指针、大小和容量。</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Seqlist</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">SQDataType</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">SL</span><span class="p">;</span>
-</code></pre></div>
+<p>头插法示例是一个基于命令行的程序，用于展示如何通过头插法构建单向链表。程序支持以下功能：
+1. <strong>创建链表</strong>：初始化一个空链表。
+2. <strong>头插节点</strong>：从头部插入新节点。
+3. <strong>显示链表</strong>：打印链表中的所有节点数据。
+4. <strong>销毁链表</strong>：释放链表内存。</p>
+<p>代码分为头文件（<code>list.h</code>）、实现文件（<code>list.c</code>）和主文件（<code>main.c</code>）。核心数据结构是单向链表 <code>struct Node</code>。</p>
+<p>以下是程序运行时的截图（占位符，需替换为实际图片）：</p>
+<p><img alt="头插法示例运行" src="../images/%E5%A4%B4%E6%8F%92%E6%B3%95.PNG" /></p>
 <hr />
 <h2 id="_4">学到的知识</h2>
 <h3 id="1-c">1. C 语言核心特性</h3>
 <ul>
-<li><strong>动态内存管理</strong>：使用 <code>malloc</code> 和 <code>realloc</code> 分配和扩展内存，使用 <code>free</code> 释放内存。
-  <div class="highlight"><pre><span></span><code><span class="n">SQDataType</span><span class="o">*</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SQDataType</span><span class="o">*</span><span class="p">)</span><span class="n">realloc</span><span class="p">(</span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">newcapacity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">SQDataType</span><span class="p">));</span>
+<li><strong>链表结构</strong>：使用 <code>struct Node</code> 定义链表节点，包含数据和指向下一个节点的指针。
+  <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div></li>
-<li><strong>指针操作</strong>：通过指针（如 <code>ps-&gt;a</code>）访问和修改数组内容。</li>
-<li><strong>结构体</strong>：使用 <code>struct Seqlist</code> 封装数组及其状态。</li>
+<li><strong>动态内存管理</strong>：使用 <code>malloc</code> 和 <code>free</code> 动态分配和释放内存。
+  <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+</code></pre></div></li>
+<li><strong>指针操作</strong>：通过指针实现头插法。</li>
 </ul>
-<h3 id="2">2. 顺序表原理</h3>
+<h3 id="2">2. 链表操作逻辑</h3>
 <ul>
-<li><strong>动态扩容</strong>：当 <code>size</code> 达到 <code>capacity</code> 时，按 2 倍扩容（初始容量为 4），避免频繁分配内存。</li>
-<li><strong>时间复杂度</strong>：<ul>
-<li>尾插/尾删：O(1)（均摊复杂度）。</li>
-<li>头插/头删：O(N)，需要移动元素。</li>
-</ul>
-</li>
-<li><strong>空间管理</strong>：通过 <code>size</code> 跟踪有效元素数，<code>capacity</code> 表示总容量。</li>
-</ul>
-<h3 id="3">3. 内存管理细节</h3>
-<ul>
-<li><strong>增容策略</strong>：从 0 到 4，再按 2 倍增长，理解了空间浪费与性能的权衡。</li>
-<li><strong>错误处理</strong>：检查 <code>realloc</code> 返回值，防止内存分配失败。
-  <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;realloc fail&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<li><strong>头插法</strong>：将新节点插入到链表头部，更新头指针。
+  <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">headInsert</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>遍历链表</strong>：从头到尾打印链表内容。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">displayList</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d -&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+<span class="w">        </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;NULL</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></li>
 </ul>
-<h3 id="4">4. 数据结构优缺点</h3>
+<h3 id="3">3. 输入输出处理</h3>
 <ul>
-<li><strong>优点</strong>：随机访问效率高（O(1)）。</li>
-<li><strong>缺点</strong>：头插和中间插入效率低（O(N)），空间可能浪费（如只用 10 个元素却分配了 100 个）。</li>
+<li><strong>用户输入</strong>：通过 <code>scanf</code> 读取用户输入的数据。</li>
+<li><strong>格式化输出</strong>：以箭头形式显示链表（例如 <code>1 -&gt; 2 -&gt; 3 -&gt; NULL</code>）。</li>
+</ul>
+<h3 id="4">4. 内存管理</h3>
+<ul>
+<li><strong>内存释放</strong>：在程序结束时释放链表内存，避免内存泄漏。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">destroyList</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">current</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="p">;</span>
+<span class="w">        </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
 </ul>
 <hr />
 <h2 id="_5">掌握的技能</h2>
 <h3 id="1-c_1">1. C 编程能力</h3>
 <ul>
-<li>实现动态数组操作，例如尾插：
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">SeqListPushBack</span><span class="p">(</span><span class="n">SL</span><span class="o">*</span><span class="w"> </span><span class="n">ps</span><span class="p">,</span><span class="w"> </span><span class="n">SQDataType</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">newcapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="w">        </span><span class="n">SQDataType</span><span class="o">*</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SQDataType</span><span class="o">*</span><span class="p">)</span><span class="n">realloc</span><span class="p">(</span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">newcapacity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">SQDataType</span><span class="p">));</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;realloc fail&quot;</span><span class="p">);</span>
-<span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
-<span class="w">        </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newcapacity</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></li>
-<li>掌握了指针和数组的协同使用。</li>
+<li>熟练操作链表，掌握了头插法。</li>
+<li>理解了动态内存分配和释放。</li>
+<li>掌握了指针的高级操作。</li>
 </ul>
 <h3 id="2_1">2. 数据结构实现</h3>
 <ul>
-<li>实现了顺序表的基本操作，理解了数组的动态扩展和元素移动。</li>
-<li>通过循环移动元素实现头插和头删：
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">SeqListPushFront</span><span class="p">(</span><span class="n">SL</span><span class="o">*</span><span class="w"> </span><span class="n">ps</span><span class="p">,</span><span class="w"> </span><span class="n">SQDataType</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="n">ps</span><span class="o">-&gt;</span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></li>
+<li>实现了链表的基本操作（插入、遍历、销毁）。</li>
+<li>理解了头插法的时间复杂度（O(1)）。</li>
 </ul>
-<h3 id="3_1">3. 测试与调试</h3>
+<h3 id="3_1">3. 调试与测试</h3>
 <ul>
-<li>编写测试函数 <code>TestSeqList1()</code>，验证各操作的正确性。</li>
-<li>通过打印中间状态（如 <code>SeqListPrint</code>）定位问题。</li>
+<li>通过打印链表内容验证头插法的正确性。</li>
+<li>测试了边界情况（如空链表、单个节点）。</li>
 </ul>
-<h3 id="4_1">4. 程序设计</h3>
+<h3 id="4_1">4. 内存管理</h3>
 <ul>
-<li><strong>模块化</strong>：将功能拆分为独立函数（如 <code>SeqListPushBack</code>、<code>SeqListPopFront</code>），提高了代码可维护性。</li>
-<li><strong>安全性</strong>：在删除操作中检查空表情况，避免非法访问。</li>
+<li>学会了正确释放链表内存，避免内存泄漏。</li>
 </ul>
 <hr />
 <h2 id="_6">成长与反思</h2>
-<h3 id="1">1. 从静态到动态</h3>
-<p>最初，我只熟悉静态数组，通过实现动态顺序表，我学会了如何根据需求调整内存大小，体会到了灵活性的重要性。</p>
+<h3 id="1">1. 从数组到链表</h3>
+<p>通过这个项目，我从固定大小的数组存储，升级到了动态链表存储，体会到了数据结构的重要性。</p>
 <h3 id="2_2">2. 内存管理的挑战</h3>
-<p>在测试扩容时，曾因未正确更新 <code>ps-&gt;a</code> 导致内存泄漏。通过检查 <code>realloc</code> 的返回值并调试，我掌握了内存管理的细节。</p>
-<h3 id="3_2">3. 时间复杂度的认识</h3>
-<p>头插和头删需要移动所有元素，这让我意识到顺序表的局限性，并开始思考链表的优势。</p>
+<p>在实现链表销毁时，我曾忘记释放某些节点，导致内存泄漏。通过调试和学习，我掌握了 <code>free</code> 的正确使用。</p>
+<h3 id="3_2">3. 效率的思考</h3>
+<p>头插法虽然简单，但如果需要尾插或中间插入，效率较低，未来可以学习其他插入方法。</p>
 <hr />
 <h2 id="_7">项目成果</h2>
 <ul>
-<li><strong>功能完整</strong>：实现了初始化、插入、删除、打印和销毁功能。</li>
-<li><strong>代码质量</strong>：约 150 行 C 代码，结构清晰，包含错误处理。</li>
-<li><strong>测试验证</strong>：通过测试用例（如插入 1、2、3，删除头尾）验证了正确性。</li>
+<li><strong>功能完整</strong>：实现了链表的头插法、遍历和销毁。</li>
+<li><strong>代码质量</strong>：代码结构清晰，注释完善。</li>
+<li><strong>测试验证</strong>：通过多次操作验证了功能的正确性。</li>
 </ul>
 <hr />
 <h2 id="_8">下一步计划</h2>
 <ul>
-<li><strong>查找与修改</strong>：增加按值查找和修改元素的功能。</li>
-<li><strong>缩容机制</strong>：当 <code>size</code> 远小于 <code>capacity</code> 时，释放多余空间。</li>
-<li><strong>链表对比</strong>：实现单链表，比较其与顺序表在插入删除上的效率。</li>
-<li><strong>异常处理</strong>：完善空表和内存分配失败的提示。</li>
+<li><strong>尾插法</strong>：实现尾插法，支持从链表尾部插入节点。</li>
+<li><strong>其他操作</strong>：添加删除、查找和排序功能。</li>
+<li><strong>双向链表</strong>：升级为双向链表，支持双向遍历。</li>
+<li><strong>应用场景</strong>：将链表应用到更复杂的项目中（如学生成绩管理）。</li>
 </ul>
 <hr />
 <h2 id="_9">结语</h2>
-<p>这个顺序表项目是我学习 C 语言和数据结构的一次重要实践。它让我从静态数组管理走向动态内存分配，增强了对底层操作的理解。未来，我希望进一步探索链表和其他数据结构，提升我的编程能力。</p>
+<p>头插法示例是我学习 C 语言和数据结构的一次基础实践。它让我掌握了链表操作、动态内存管理和指针应用，为后续学习更复杂的数据结构打下了基础。未来，我希望将链表应用到更大的项目中，提升编程能力。</p>
               
             </div>
           </div><footer>

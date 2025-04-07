@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -133,11 +134,11 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2">2. 数组管理</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 数据管理逻辑</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#3">3. 输入输出处理</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4">4. 标准库函数</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 程序控制流</a>
     </li>
         </ul>
     </li>
@@ -145,21 +146,21 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 程序设计</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 数据管理实现</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与优化</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与测试</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 算法应用</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 用户体验设计</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从简单到复杂</a>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从基础到应用</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 输入处理的挑战</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 效率意识</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 数据管理的思考</a>
     </li>
         </ul>
     </li>
@@ -207,33 +208,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="c">通讯录管理系统总结 —— C 语言与数组的实践</h1>
-<p><strong>作者</strong>: dly<br />
+                <h1 id="c">通讯录管理系统总结 —— C 语言与数据管理的实践</h1>
+<p><strong>作者</strong>: yituanxing<br />
 <strong>完成日期</strong>: 2025-04-06<br />
 <strong>分类专栏</strong>: C 语言学习笔记<br />
-<strong>标签</strong>: C 语言, 通讯录, 数组, 排序, 文件操作<br />
+<strong>标签</strong>: C 语言, 通讯录, 数据管理, 结构体, 排序<br />
 <strong>版权</strong>: 本文原创，转载请注明出处</p>
 <hr />
 <h2 id="_1">专栏导航</h2>
 <p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
 <hr />
 <h2 id="_2">前言</h2>
-<p>我使用 C 语言实现了一个通讯录管理系统，基于静态数组管理联系人信息，支持添加、删除、查找、修改、显示和排序功能。这个项目让我深入理解了数组作为数据结构的应用，掌握了 C 语言的输入输出、指针操作和标准库函数的使用。以下是我的学习与成长总结。</p>
+<p>我使用 C 语言实现了一个通讯录管理系统，支持添加、删除、查找、修改、显示和排序联系人信息。这个项目让我掌握了结构体的使用、数组操作以及 C 语言的输入输出处理。以下是我的学习与成长总结。</p>
 <hr />
 <h2 id="_3">项目概述</h2>
-<p>该系统是一个基于命令行的通讯录管理工具，使用静态数组存储最多 100 个联系人的信息。每个联系人包含姓名、年龄、性别、电话和地址。系统通过菜单交互实现以下功能：
-1. <strong>添加联系人</strong>：在通讯录中新增联系人。
+<p>通讯录管理系统是一个基于命令行的程序，用于管理联系人信息。系统支持以下功能：
+1. <strong>添加联系人</strong>：录入联系人信息（姓名、年龄、性别、电话、地址）。
 2. <strong>删除联系人</strong>：根据姓名删除指定联系人。
-3. <strong>查找联系人</strong>：根据姓名查找并显示信息。
-4. <strong>修改联系人</strong>：修改指定联系人的信息。
-5. <strong>显示联系人</strong>：列出所有联系人信息。
-6. <strong>排序联系人</strong>：按姓名或年龄排序。</p>
-<p>代码分为头文件（<code>contact.h</code>）、实现文件（<code>contact.c</code>）和测试文件（<code>test.c</code>），总计约 250 行。</p>
+3. <strong>查找联系人</strong>：根据姓名查找并显示联系人信息。
+4. <strong>修改联系人</strong>：根据姓名修改联系人信息。
+5. <strong>显示所有联系人</strong>：以表格形式展示所有联系人信息。
+6. <strong>排序联系人</strong>：支持按姓名或年龄排序。
+7. <strong>退出系统</strong>：安全退出程序。</p>
+<p>代码分为头文件（<code>contact.h</code>）、实现文件（<code>contact.c</code>）和主文件（<code>test.c</code>）。核心数据结构是结构体数组 <code>struct Contact</code>，最大支持 100 个联系人。</p>
+<p>以下是系统运行时的截图（占位符，需替换为实际图片）：</p>
+<p><img alt="通讯录管理系统菜单" src="../images/%E9%80%9A%E8%AE%AF%E5%BD%95.PNG" /></p>
 <hr />
 <h2 id="_4">学到的知识</h2>
 <h3 id="1-c">1. C 语言核心特性</h3>
 <ul>
-<li><strong>结构体定义</strong>：使用 <code>struct PeoInfo</code> 定义联系人信息，嵌套在 <code>struct Contact</code> 中管理数组。
+<li><strong>结构体</strong>：使用 <code>struct PeoInfo</code> 存储联系人信息（姓名、年龄、性别、电话、地址）。
   <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">PeoInfo</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="n">MAX_NAME</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
@@ -241,99 +245,100 @@
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">tele</span><span class="p">[</span><span class="n">MAX_TELE</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">adder</span><span class="p">[</span><span class="n">MAX_ADDER</span><span class="p">];</span>
 <span class="p">}</span><span class="w"> </span><span class="n">PeoInfo</span><span class="p">;</span>
-
-<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Contact</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">PeoInfo</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">MAX</span><span class="p">];</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">Contact</span><span class="p">;</span>
 </code></pre></div></li>
-<li><strong>指针与传参</strong>：通过指针（如 <code>Contact* pc</code>）传递结构体，确保函数能修改原始数据。</li>
-<li><strong>枚举类型</strong>：使用 <code>enum Option</code> 定义菜单选项，提高代码可读性。</li>
-</ul>
-<h3 id="2">2. 数组管理</h3>
-<ul>
-<li><strong>静态数组</strong>：使用固定大小的数组（<code>data[MAX]</code>）存储联系人，理解了数组的容量限制。</li>
-<li><strong>边界检查</strong>：在添加和删除时检查 <code>sz</code> 是否超出 <code>MAX</code>，避免溢出。</li>
-<li><strong>数据移动</strong>：删除联系人时通过循环移动数组元素，保持数据连续性。</li>
-</ul>
-<h3 id="3">3. 输入输出处理</h3>
-<ul>
-<li><strong>格式化输出</strong>：使用 <code>printf</code> 的宽度控制（如 <code>%-10s</code>）美化显示效果。
-  <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-10s %-4s %-5s %-12s %-30s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;姓名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;年龄&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;性别&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;电话&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;地址&quot;</span><span class="p">);</span>
-</code></pre></div></li>
-<li><strong>输入优化</strong>：使用 <code>fgets</code> 替代 <code>scanf</code> 处理字符串输入，并移除换行符。</li>
-</ul>
-<h3 id="4">4. 标准库函数</h3>
-<ul>
-<li><strong>字符串操作</strong>：使用 <code>strcmp</code> 比较姓名，<code>strcspn</code> 移除换行符。</li>
-<li><strong>排序</strong>：利用 <code>qsort</code> 实现按姓名和年龄排序，定义了比较函数：
+<li><strong>数组操作</strong>：使用结构体数组 <code>struct Contact</code> 存储联系人信息。</li>
+<li><strong>排序算法</strong>：使用 <code>qsort</code> 实现按姓名和年龄排序。
   <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">cmp_by_name</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">e1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">e2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">strcmp</span><span class="p">(((</span><span class="n">PeoInfo</span><span class="o">*</span><span class="p">)</span><span class="n">e1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="p">((</span><span class="n">PeoInfo</span><span class="o">*</span><span class="p">)</span><span class="n">e2</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></li>
 </ul>
+<h3 id="2">2. 数据管理逻辑</h3>
+<ul>
+<li><strong>数据存储</strong>：使用结构体数组存储联系人信息，支持动态添加和删除。</li>
+<li><strong>查找逻辑</strong>：通过姓名查找联系人记录，使用线性搜索。
+  <div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">findByName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Contact</span><span class="o">*</span><span class="w"> </span><span class="n">pc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>删除逻辑</strong>：通过后移元素实现删除。</li>
+</ul>
+<h3 id="3">3. 输入输出处理</h3>
+<ul>
+<li><strong>格式化显示</strong>：设计了表格形式的输出，使用格式化字符串对齐。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">ShowContact</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Contact</span><span class="o">*</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;通讯录为空</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-20s %-4s %-5s %-12s %-30s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;姓名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;年龄&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;性别&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;电话&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;地址&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-20s %-4d %-5s %-12s %-30s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">age</span><span class="p">,</span>
+<span class="w">               </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sex</span><span class="p">,</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tele</span><span class="p">,</span><span class="w"> </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">adder</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>输入验证</strong>：检查年龄、性别、电话的合法性。</li>
+</ul>
+<h3 id="4">4. 程序控制流</h3>
+<ul>
+<li><strong>循环与分支</strong>：使用 <code>do-while</code> 和 <code>switch</code> 实现菜单循环。</li>
+<li><strong>用户交互</strong>：提供清晰的菜单选项和提示信息。</li>
+</ul>
 <hr />
 <h2 id="_5">掌握的技能</h2>
 <h3 id="1-c_1">1. C 编程能力</h3>
 <ul>
-<li>熟练操作结构体数组，例如添加联系人：
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">AddContact</span><span class="p">(</span><span class="n">Contact</span><span class="o">*</span><span class="w"> </span><span class="n">pc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MAX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;通讯录已满，无法增加</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;请输入名字：&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">fgets</span><span class="p">(</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
-<span class="w">    </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="n">strcspn</span><span class="p">(</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">// ... 其他字段输入</span>
-<span class="w">    </span><span class="n">pc</span><span class="o">-&gt;</span><span class="n">sz</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;添加成功</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></li>
-<li>掌握了指针和数组的协同使用。</li>
+<li>熟练操作结构体数组，管理动态数据。</li>
+<li>掌握了 <code>qsort</code> 排序函数的使用。</li>
+<li>理解了数组的增删改查操作。</li>
 </ul>
-<h3 id="2_1">2. 程序设计</h3>
+<h3 id="2_1">2. 数据管理实现</h3>
 <ul>
-<li><strong>模块化</strong>：将功能拆分为独立函数（如 <code>AddContact</code>、<code>DelContact</code>），提高了代码复用性。</li>
-<li><strong>菜单交互</strong>：使用 <code>switch</code> 和枚举实现用户选择逻辑。</li>
-<li><strong>错误处理</strong>：对空通讯录、无效输入等情况进行了提示。</li>
+<li>实现了基本的 CRUD 操作（增删改查）。</li>
+<li>处理了数据删除时的数组元素移动。</li>
 </ul>
-<h3 id="3_1">3. 调试与优化</h3>
+<h3 id="3_1">3. 调试与测试</h3>
 <ul>
-<li>通过打印中间结果（如查找位置 <code>pos</code>）定位问题。</li>
-<li>优化输入，使用 <code>getchar()</code> 清除缓冲区残留换行符。</li>
+<li>通过多次测试验证了添加、删除、查找等功能的正确性。</li>
+<li>测试了边界情况（如通讯录为空、姓名重复）。</li>
 </ul>
-<h3 id="4_1">4. 算法应用</h3>
+<h3 id="4_1">4. 用户体验设计</h3>
 <ul>
-<li>实现线性查找（<code>findByName</code>）定位联系人。</li>
-<li>使用 <code>qsort</code> 实现高效排序，理解了比较函数的编写。</li>
+<li>设计了直观的表格显示和菜单交互。</li>
+<li>添加了提示信息（如“要查找的人不存在”）提升交互性。</li>
 </ul>
 <hr />
 <h2 id="_6">成长与反思</h2>
-<h3 id="1">1. 从简单到复杂</h3>
-<p>最初，我只熟悉基本的 C 语法，通过这个项目，我学会了将多个功能整合成一个完整的系统，体会到了程序设计的整体性。</p>
+<h3 id="1">1. 从基础到应用</h3>
+<p>通过这个项目，我从简单的 C 语言语法学习，走向了实际的数据管理应用，体会到了结构化编程的魅力。</p>
 <h3 id="2_2">2. 输入处理的挑战</h3>
-<p>使用 <code>scanf</code> 时遇到缓冲区问题，导致输入混乱。改为 <code>fgets</code> 并处理换行符后，问题解决，这让我认识到输入处理的复杂性。</p>
-<h3 id="3_2">3. 效率意识</h3>
-<p>最初的删除操作直接清空数据，后来改为移动元素保持连续性，提升了对数组操作效率的关注。</p>
+<p>在添加联系人时，我曾遇到输入缓冲区问题，通过使用 <code>fgets</code> 和 <code>getchar()</code> 解决了问题。</p>
+<h3 id="3_2">3. 数据管理的思考</h3>
+<p>当前系统使用数组存储数据，容量固定为 100，未来可以考虑使用链表或文件存储来支持更多联系人。</p>
 <hr />
 <h2 id="_7">项目成果</h2>
 <ul>
-<li><strong>功能完整</strong>：实现了所有要求的 6 个功能，用户可通过菜单交互管理联系人。</li>
-<li><strong>代码质量</strong>：约 250 行 C 代码，结构清晰，包含必要的错误处理。</li>
-<li><strong>测试验证</strong>：通过手动输入和排序验证了系统的正确性。</li>
+<li><strong>功能完整</strong>：实现了通讯录管理的核心功能，包括增删改查和排序。</li>
+<li><strong>代码质量</strong>：代码结构清晰，注释完善。</li>
+<li><strong>测试验证</strong>：通过多次操作验证了功能的正确性。</li>
 </ul>
 <hr />
 <h2 id="_8">下一步计划</h2>
 <ul>
-<li><strong>动态内存</strong>：将静态数组改为动态分配，支持更多联系人。</li>
-<li><strong>文件存储</strong>：增加数据保存和加载功能，实现持久化。</li>
-<li><strong>多条件排序</strong>：支持按多个字段（如姓名+年龄）排序。</li>
-<li><strong>输入验证</strong>：增加电话号码格式检查等功能。</li>
+<li><strong>动态存储</strong>：使用链表或动态数组支持更多联系人。</li>
+<li><strong>文件存储</strong>：实现数据的持久化存储，程序退出后数据不丢失。</li>
+<li><strong>搜索优化</strong>：使用哈希表或二叉搜索树优化查找效率。</li>
+<li><strong>界面优化</strong>：尝试使用图形界面（如 Qt）替代命令行。</li>
 </ul>
 <hr />
 <h2 id="_9">结语</h2>
-<p>这个通讯录管理系统是我学习 C 语言的一次重要实践。它让我从基础语法走向了实用程序开发，增强了我的编程信心。未来，我希望将这些经验应用到更复杂的项目中，继续提升技能。</p>
+<p>通讯录管理系统是我学习 C 语言的一次重要实践。它让我掌握了结构体、数组操作和数据管理的技能，为后续学习更复杂的数据结构打下了基础。未来，我希望将这个系统集成到 Online Judge 平台中，提供更丰富的功能。</p>
               
             </div>
           </div><footer>

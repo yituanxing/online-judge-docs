@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -129,11 +130,11 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2">2. 单向链表数据结构</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 数据管理逻辑</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3">3. 文件操作</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 输入输出处理</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4">4. 程序设计</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 程序控制流</a>
     </li>
         </ul>
     </li>
@@ -141,21 +142,21 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 数据结构应用</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 数据管理实现</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与优化</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与测试</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 系统集成</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 用户体验设计</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从理论到实践</a>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从基础到应用</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 调试能力的提升</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 输入处理的挑战</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 注重细节</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 数据管理的思考</a>
     </li>
         </ul>
     </li>
@@ -207,143 +208,125 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="c">学生成绩管理系统总结 —— C 语言与链表的实践</h1>
-<p><strong>作者</strong>: dly<br />
+                <h1 id="c">学生成绩管理系统总结（数组版本） —— C 语言与数据管理的实践</h1>
+<p><strong>作者</strong>: yituanxing<br />
 <strong>完成日期</strong>: 2025-04-06<br />
 <strong>分类专栏</strong>: C 语言学习笔记<br />
-<strong>标签</strong>: C 语言, 链表, 学生管理系统, 文件操作, 数据结构<br />
+<strong>标签</strong>: C 语言, 学生成绩管理, 数据管理, 结构体, 数组<br />
 <strong>版权</strong>: 本文原创，转载请注明出处</p>
 <hr />
 <h2 id="_1">专栏导航</h2>
 <p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
 <hr />
 <h2 id="_2">前言</h2>
-<p>我使用 C 语言实现了一个学生成绩管理系统，基于单向链表管理学生信息，支持添加、删除、显示、排序、查找、修改和文件存取功能。这个项目让我深入理解了数据结构（如链表）的应用，掌握了 C 语言的内存管理、文件操作和程序设计技巧。以下是我的学习与成长总结。</p>
+<p>我使用 C 语言实现了一个基于数组的学生成绩管理系统，支持添加、删除、查找、修改和显示学生成绩信息。这个项目让我掌握了结构体的使用、数组操作以及 C 语言的数据管理能力。以下是我的学习与成长总结。</p>
 <hr />
 <h2 id="_3">项目概述</h2>
-<p>该系统是一个基于命令行的学生成绩管理工具，核心数据结构是单向链表。每个节点存储一个学生的信息，包括学号、姓名、性别、年龄和成绩。系统通过菜单交互实现以下功能：
-1. <strong>添加学生成绩</strong>：在指定位置插入学生信息。
-2. <strong>显示成绩信息</strong>：列出所有学生记录。
-3. <strong>按成绩排序</strong>：按成绩降序排列。
-4. <strong>删除学生成绩</strong>：删除指定位置的学生。
-5. <strong>查找学生成绩</strong>：根据学号或姓名查找。
-6. <strong>修改学生信息</strong>：修改指定学生的学号、姓名或成绩。
-7. <strong>文件存取</strong>：将数据保存到文件并从中加载。</p>
-<p>代码分为头文件（<code>student.h</code>、<code>linklist.h</code>）和实现文件（<code>linklist.c</code>、<code>main.c</code>），总计约 300 行。</p>
+<p>学生成绩管理系统（数组版本）是一个基于命令行的程序，用于管理学生的成绩信息。系统支持以下功能：
+1. <strong>添加学生信息</strong>：录入学生学号、姓名和成绩。
+2. <strong>删除学生信息</strong>：根据学号删除学生记录。
+3. <strong>查找学生信息</strong>：根据学号查找并显示学生信息。
+4. <strong>修改学生信息</strong>：根据学号修改学生信息。
+5. <strong>显示所有学生信息</strong>：以表格形式展示所有学生记录。
+6. <strong>退出系统</strong>：安全退出程序。</p>
+<p>代码分为头文件（<code>student.h</code>）、实现文件（<code>student.c</code>）和主文件（<code>main.c</code>）。核心数据结构是结构体数组 <code>struct Student students[MAX]</code>，最大支持 100 名学生。</p>
+<p>以下是系统运行时的截图，展示了菜单和操作流程：</p>
+<p><img alt="学生成绩管理系统菜单" src="../images/%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.PNG" /></p>
 <hr />
 <h2 id="_4">学到的知识</h2>
 <h3 id="1-c">1. C 语言核心特性</h3>
 <ul>
-<li><strong>结构体与指针</strong>：定义了 <code>STUDENT</code> 结构体存储学生信息，使用指针（如 <code>PSTUDENT</code>）操作动态内存。
-  <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_Student</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">Name</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">Gender</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Age</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">STUDENT</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">PSTUDENT</span><span class="p">;</span>
+<li><strong>结构体</strong>：使用 <code>struct Student</code> 存储学生信息（学号、姓名、成绩）。
+  <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">score</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div></li>
-<li><strong>内存管理</strong>：使用 <code>malloc</code> 和 <code>free</code> 动态分配和释放链表节点，理解了内存泄漏的防范。</li>
-<li><strong>字符串操作</strong>：通过 <code>strcpy_s</code> 和 <code>strcmp</code> 处理姓名和学号的输入与比较。</li>
+<li><strong>数组操作</strong>：使用固定大小的数组存储学生信息，动态管理数组元素。</li>
+<li><strong>函数模块化</strong>：将功能拆分为独立函数（如 <code>addStudent</code>、<code>showStudents</code>），提高了代码可读性。</li>
 </ul>
-<h3 id="2">2. 单向链表数据结构</h3>
+<h3 id="2">2. 数据管理逻辑</h3>
 <ul>
-<li><strong>链表结构</strong>：设计了 <code>NODE</code> 和 <code>LINKLIST</code> 结构体，分别表示节点和链表。
-  <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_Node</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">STUDENT</span><span class="w"> </span><span class="n">Info</span><span class="p">;</span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_Node</span><span class="o">*</span><span class="w"> </span><span class="n">Next</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">NODE</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">PNODE</span><span class="p">;</span>
-
-<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_linklist</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">NODE</span><span class="o">*</span><span class="w"> </span><span class="n">Head</span><span class="p">;</span>
-<span class="w">    </span><span class="n">NODE</span><span class="o">*</span><span class="w"> </span><span class="n">Tail</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">NumOfNodes</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">LINKLIST</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">PLINKLIST</span><span class="p">;</span>
-</code></pre></div></li>
-<li><strong>基本操作</strong>：实现了链表的创建、插入、删除和遍历。</li>
-<li><strong>尾插法</strong>：支持在链表末尾快速插入节点，提升了效率。</li>
-</ul>
-<h3 id="3">3. 文件操作</h3>
-<ul>
-<li><strong>二进制文件</strong>：使用 <code>fwrite</code> 和 <code>fread</code> 以二进制模式读写学生数据，确保数据完整性。
-  <div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">linklist_SaveToFile</span><span class="p">(</span><span class="n">LINKLIST</span><span class="o">*</span><span class="w"> </span><span class="n">plinklist</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wb&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">plinklist</span><span class="o">-&gt;</span><span class="n">NumOfNodes</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">plinklist</span><span class="o">-&gt;</span><span class="n">NumOfNodes</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">NODE</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plinklist</span><span class="o">-&gt;</span><span class="n">Head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span>
+<li><strong>数据存储</strong>：使用结构体数组存储学生信息，支持动态添加和删除。</li>
+<li><strong>查找逻辑</strong>：通过学号查找学生记录，使用线性搜索。
+  <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">findStudent</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="n">students</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">id</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><strong>持久化存储</strong>：实现了数据的保存与加载，确保程序重启后数据不丢失。</li>
+<li><strong>删除逻辑</strong>：通过后移元素实现删除，调整数组中的数据。</li>
 </ul>
-<h3 id="4">4. 程序设计</h3>
+<h3 id="3">3. 输入输出处理</h3>
 <ul>
-<li><strong>模块化</strong>：将功能拆分为多个函数（如 <code>linklist_Insert</code>、<code>linklist_Delete</code>），提高了代码可读性和维护性。</li>
-<li><strong>交互设计</strong>：设计了菜单界面，使用 <code>switch</code> 处理用户选择。</li>
-<li><strong>错误处理</strong>：对内存分配失败、文件打开失败等情况进行了检查和提示。</li>
+<li><strong>格式化显示</strong>：设计了表格形式的输出，使用格式化字符串对齐。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">showStudents</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Student</span><span class="w"> </span><span class="n">students</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-20s %-20s %-5s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;学号&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;姓名&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;成绩&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-20s %-20s %-5d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">students</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">score</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><strong>输入验证</strong>：检查学号是否重复，成绩是否在合理范围内（0-100）。</li>
+</ul>
+<h3 id="4">4. 程序控制流</h3>
+<ul>
+<li><strong>循环与分支</strong>：使用 <code>do-while</code> 和 <code>switch</code> 实现菜单循环。</li>
+<li><strong>用户交互</strong>：提供清晰的菜单选项和提示信息。</li>
 </ul>
 <hr />
 <h2 id="_5">掌握的技能</h2>
 <h3 id="1-c_1">1. C 编程能力</h3>
 <ul>
-<li>熟练使用指针操作链表节点，例如插入操作：
-  <div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="nf">linklist_Insert</span><span class="p">(</span><span class="n">LINKLIST</span><span class="o">*</span><span class="w"> </span><span class="n">plinklist</span><span class="p">,</span><span class="w"> </span><span class="n">NODE</span><span class="o">*</span><span class="w"> </span><span class="n">pnew</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Pos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">NODE</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plinklist</span><span class="o">-&gt;</span><span class="n">Head</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Pos</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
-<span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
-<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
-<span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pnew</span><span class="p">;</span>
-<span class="w">    </span><span class="n">plinklist</span><span class="o">-&gt;</span><span class="n">NumOfNodes</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></li>
-<li>掌握了格式化输入输出（如 <code>scanf</code>、<code>printf</code>）的细节。</li>
+<li>熟练操作结构体数组，管理动态数据。</li>
+<li>理解了数组的增删改查操作。</li>
+<li>掌握了指针和数组的传递。</li>
 </ul>
-<h3 id="2_1">2. 数据结构应用</h3>
+<h3 id="2_1">2. 数据管理实现</h3>
 <ul>
-<li>实现了链表的动态管理，支持任意位置的插入和删除。</li>
-<li>使用冒泡排序（<code>linklist_up</code>）对成绩排序，理解了算法在实际中的应用。</li>
+<li>实现了基本的 CRUD 操作（增删改查）。</li>
+<li>处理了数据删除时的数组元素移动。</li>
 </ul>
-<h3 id="3_1">3. 调试与优化</h3>
+<h3 id="3_1">3. 调试与测试</h3>
 <ul>
-<li>通过打印调试信息（如链表为空时的提示）定位问题。</li>
-<li>优化了显示格式，使用固定宽度输出提高可读性：
-  <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%-15s %-10s %-8c %-7d %-.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">.</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">.</span><span class="n">Gender</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">.</span><span class="n">Age</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Info</span><span class="p">.</span><span class="n">score</span><span class="p">);</span>
-</code></pre></div></li>
+<li>通过多次测试验证了添加、删除、查找等功能的正确性。</li>
+<li>测试了边界情况（如学生列表为空、学号重复）。</li>
 </ul>
-<h3 id="4_1">4. 系统集成</h3>
+<h3 id="4_1">4. 用户体验设计</h3>
 <ul>
-<li>在 Windows 下使用 <code>system("cls")</code> 清屏，提升用户体验。</li>
-<li>将文件操作与链表管理无缝集成，确保数据一致性。</li>
+<li>设计了直观的表格显示和菜单交互。</li>
+<li>添加了提示信息（如“学号已存在”）提升交互性。</li>
 </ul>
 <hr />
 <h2 id="_6">成长与反思</h2>
-<h3 id="1">1. 从理论到实践</h3>
-<p>最初，我对链表和文件操作仅停留在书本知识，通过这个项目，我将理论转化为可运行的程序，体会到了动手实践的重要性。</p>
-<h3 id="2_2">2. 调试能力的提升</h3>
-<p>在实现查找和修改功能时，我遇到了指针访问错误的问题。通过逐步打印中间结果和检查边界条件，我学会了系统化地调试复杂程序。</p>
-<h3 id="3_2">3. 注重细节</h3>
-<p>例如，在文件加载时忘记初始化 <code>NumOfNodes</code>，导致数据不一致。这个教训让我更加关注程序的每个细节。</p>
+<h3 id="1">1. 从基础到应用</h3>
+<p>通过这个项目，我从简单的 C 语言语法学习，走向了实际的数据管理应用，体会到了结构化编程的魅力。</p>
+<h3 id="2_2">2. 输入处理的挑战</h3>
+<p>在添加学生信息时，我曾遇到输入缓冲区问题（例如换行符残留），通过使用 <code>getchar()</code> 清除换行符解决了问题。</p>
+<h3 id="3_2">3. 数据管理的思考</h3>
+<p>当前系统使用数组存储数据，容量固定为 100，未来可以考虑使用链表或动态数组来支持更多学生。</p>
 <hr />
 <h2 id="_7">项目成果</h2>
 <ul>
-<li><strong>功能完整</strong>：实现了所有要求的 7 个功能，用户可通过菜单交互管理学生信息。</li>
-<li><strong>代码质量</strong>：约 300 行 C 代码，结构清晰，包含必要的错误处理。</li>
-<li><strong>测试验证</strong>：通过手动输入和文件加载验证了系统的稳定性。</li>
+<li><strong>功能完整</strong>：实现了学生成绩管理的核心功能，包括增删改查。</li>
+<li><strong>代码质量</strong>：代码结构清晰，注释完善。</li>
+<li><strong>测试验证</strong>：通过多次操作验证了功能的正确性。</li>
 </ul>
 <hr />
 <h2 id="_8">下一步计划</h2>
 <ul>
-<li><strong>优化排序</strong>：将冒泡排序替换为快速排序，提高效率。</li>
-<li><strong>数据校验</strong>：增加学号唯一性检查，避免重复输入。</li>
-<li><strong>界面改进</strong>：尝试使用图形库（如 ncurses）替代命令行界面。</li>
-<li><strong>跨平台支持</strong>：适配 Linux 环境，替换 Windows 特有的 <code>system("cls")</code>。</li>
+<li><strong>动态存储</strong>：使用链表或动态数组支持更多学生。</li>
+<li><strong>文件存储</strong>：实现数据的持久化存储，程序退出后数据不丢失。</li>
+<li><strong>排序功能</strong>：添加按成绩排序的功能。</li>
+<li><strong>界面优化</strong>：尝试使用图形界面（如 Qt）替代命令行。</li>
 </ul>
 <hr />
 <h2 id="_9">结语</h2>
-<p>这个学生成绩管理系统是我学习 C 语言和数据结构的一次重要实践。它让我从简单的语法掌握走向了程序设计的整体思维，增强了我的信心。未来，我希望将这些经验应用到更复杂的项目中，继续提升编程能力。</p>
+<p>学生成绩管理系统（数组版本）是我学习 C 语言的一次重要实践。它让我掌握了结构体、数组操作和数据管理的基本技能，为后续学习更复杂的数据结构打下了基础。未来，我希望将这个系统集成到 Online Judge 平台中，提供更丰富的功能。</p>
               
             </div>
           </div><footer>

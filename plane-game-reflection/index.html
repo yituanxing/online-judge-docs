@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -139,13 +140,13 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_4">学到的知识</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言高级特性</a>
+    <li class="toctree-l4"><a class="reference internal" href="#1-c">1. C 语言核心特性</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2-windows">2. Windows 控制台编程</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 游戏逻辑设计</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3">3. 游戏逻辑设计</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3">3. 输入输出处理</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4">4. 时间与随机性</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4">4. 程序控制流</a>
     </li>
         </ul>
     </li>
@@ -153,21 +154,21 @@
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#1-c_1">1. C 编程能力</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2">2. 控制台界面设计</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 游戏逻辑实现</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 游戏开发技巧</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_1">3. 调试与测试</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 调试与优化</a>
+    <li class="toctree-l4"><a class="reference internal" href="#4_1">4. 用户体验设计</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_6">成长与反思</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从简单到复杂</a>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 从静态到动态</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#2_1">2. 控制台开发的挑战</a>
+    <li class="toctree-l4"><a class="reference internal" href="#2_2">2. 实时处理的挑战</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 设计思维的提升</a>
+    <li class="toctree-l4"><a class="reference internal" href="#3_2">3. 游戏设计的思考</a>
     </li>
         </ul>
     </li>
@@ -207,140 +208,126 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="c">飞机大战游戏总结 —— C 语言与控制台开发的实践</h1>
-<p><strong>作者</strong>: dly<br />
+                <h1 id="c">飞机大战总结 —— C 语言与游戏开发的实践</h1>
+<p><strong>作者</strong>: yituanxing<br />
 <strong>完成日期</strong>: 2025-04-06<br />
 <strong>分类专栏</strong>: C 语言学习笔记<br />
-<strong>标签</strong>: C 语言, 飞机大战, 游戏开发, 链表, Windows 控制台<br />
+<strong>标签</strong>: C 语言, 飞机大战, 游戏开发, 控制台游戏, 逻辑设计<br />
 <strong>版权</strong>: 本文原创，转载请注明出处</p>
 <hr />
 <h2 id="_1">专栏导航</h2>
 <p>本系列专栏 <strong>“C 语言学习笔记”</strong> 记录了我学习和实践 C 语言的过程，欢迎订阅以查看更多内容。</p>
 <hr />
 <h2 id="_2">前言</h2>
-<p>我使用 C 语言实现了一个基于 Windows 控制台的“飞机大战”游戏，支持玩家操控飞机发射子弹击落敌机，并提供多种模式选择。这个项目让我掌握了动态链表、控制台操作、实时更新逻辑以及游戏设计的技能。以下是我的学习与成长总结。</p>
+<p>我使用 C 语言实现了一个简单的飞机大战游戏，支持玩家控制飞机移动、发射子弹和躲避敌机。这个项目让我掌握了控制台游戏的开发、键盘输入处理以及 C 语言的逻辑设计。以下是我的学习与成长总结。</p>
 <hr />
 <h2 id="_3">项目概述</h2>
-<p>“飞机大战”是一个基于命令行的射击游戏，使用 20x30 的控制台界面。玩家控制飞机（<code>Ж</code>）发射子弹（<code>|</code>）击落敌机（<code>Ψ</code>），包含以下功能：
-1. <strong>初始化</strong>：设置飞机、子弹和敌机的初始位置。
-2. <strong>显示界面</strong>：实时更新游戏画面和得分。
-3. <strong>玩家控制</strong>：通过 WASD 移动飞机，空格发射子弹。
-4. <strong>敌机移动</strong>：敌机随机生成并下落。
-5. <strong>子弹行为</strong>：支持普通发射、追踪和“离手”模式。
-6. <strong>模式选择</strong>：
-    - 普通模式（难度可选）。
-    - 破解模式（子弹追踪敌机）。
-    - 离手模式（自动瞄准）。
-    - 复活模式（撞毁后复活）。
-7. <strong>碰撞检测</strong>：检测子弹击中敌机或飞机撞毁。</p>
-<p>代码分为主文件和部分函数实现，总计约 400 行，使用了链表管理复活模式下的飞机。</p>
+<p>飞机大战是一个基于命令行的简单游戏，玩家控制一架飞机（用字符表示），通过键盘移动并发射子弹，躲避敌机。游戏支持以下功能：
+1. <strong>初始化游戏</strong>：设置玩家飞机和敌机的初始位置。
+2. <strong>显示游戏界面</strong>：在控制台打印游戏状态。
+3. <strong>玩家控制</strong>：通过键盘（例如 WASD）控制飞机移动。
+4. <strong>子弹发射</strong>：玩家可以发射子弹攻击敌机。
+5. <strong>敌机移动</strong>：敌机随机移动，增加游戏难度。
+6. <strong>碰撞检测</strong>：检测子弹是否击中敌机，或玩家是否被敌机撞到。</p>
+<p>代码分为头文件（<code>game.h</code>）、实现文件（<code>game.c</code>）和主文件（<code>main.c</code>）。核心数据结构是二维字符数组，用于表示游戏界面。</p>
+<p>以下是游戏运行时的截图：</p>
+<p><img alt="飞机大战游戏界面" src="../images/%E9%A3%9E%E6%9C%BA.PNG" /></p>
 <hr />
 <h2 id="_4">学到的知识</h2>
-<h3 id="1-c">1. C 语言高级特性</h3>
+<h3 id="1-c">1. C 语言核心特性</h3>
 <ul>
-<li><strong>动态内存与链表</strong>：使用 <code>malloc</code> 创建链表节点，支持复活模式下的飞机动态生成。
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">AddNode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">pnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
-<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
-<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">WIDTH</span><span class="p">;</span>
-<span class="w">    </span><span class="n">pnew</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plane</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="p">;</span>
-<span class="w">    </span><span class="n">plane</span><span class="o">-&gt;</span><span class="n">pnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pnew</span><span class="p">;</span>
+<li><strong>二维数组</strong>：使用 <code>char board[ROW][COL]</code> 表示游戏界面。
+  <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">];</span>
+</code></pre></div></li>
+<li><strong>键盘输入</strong>：通过 <code>getch</code> 或类似函数捕获键盘输入（假设使用 Windows 的 <code>conio.h</code>）。
+  <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getch</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;w&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">playerY</span><span class="o">--</span><span class="p">;</span>
+</code></pre></div></li>
+<li><strong>时间控制</strong>：使用 <code>Sleep</code> 或循环控制游戏帧率。</li>
+</ul>
+<h3 id="2">2. 游戏逻辑设计</h3>
+<ul>
+<li><strong>游戏界面</strong>：用字符表示飞机（<code>^</code>）、子弹（<code>*</code>）、敌机（<code>#</code>）和空白（<code></code>）。</li>
+<li><strong>移动逻辑</strong>：根据键盘输入更新玩家飞机的位置。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">movePlayer</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">playerX</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">playerY</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">board</span><span class="p">[</span><span class="o">*</span><span class="n">playerY</span><span class="p">][</span><span class="o">*</span><span class="n">playerX</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;w&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">playerY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">playerY</span><span class="p">)</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;s&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">playerY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ROW</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">playerY</span><span class="p">)</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">playerX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">playerX</span><span class="p">)</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">playerX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">COL</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">playerX</span><span class="p">)</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">board</span><span class="p">[</span><span class="o">*</span><span class="n">playerY</span><span class="p">][</span><span class="o">*</span><span class="n">playerX</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;^&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><strong>指针操作</strong>：通过指针更新飞机和子弹位置。</li>
+<li><strong>碰撞检测</strong>：检查子弹是否击中敌机，或玩家是否被敌机撞到。</li>
 </ul>
-<h3 id="2-windows">2. Windows 控制台编程</h3>
+<h3 id="3">3. 输入输出处理</h3>
 <ul>
-<li><strong>光标控制</strong>：使用 <code>gotoxy</code> 调整光标位置，实现实时画面更新。
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">gotoxy</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">COORD</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">};</span>
-<span class="w">    </span><span class="n">SetConsoleCursorPosition</span><span class="p">(</span><span class="n">GetStdHandle</span><span class="p">(</span><span class="n">STD_OUTPUT_HANDLE</span><span class="p">),</span><span class="w"> </span><span class="n">pos</span><span class="p">);</span>
+<li><strong>格式化显示</strong>：在控制台打印游戏界面。
+  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">displayBoard</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">board</span><span class="p">[</span><span class="n">ROW</span><span class="p">][</span><span class="n">COL</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">row</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">col</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><strong>颜色设置</strong>：通过 <code>SetConsoleTextAttribute</code> 为不同元素设置颜色。</li>
-<li><strong>隐藏光标</strong>：使用 <code>SetConsoleCursorInfo</code> 提升界面美观性。</li>
-<li><strong>键盘输入</strong>：通过 <code>_kbhit</code> 和 <code>_getch</code> 实现非阻塞输入检测。</li>
+<li><strong>实时刷新</strong>：通过清屏（<code>system("cls")</code>）实现界面刷新。</li>
 </ul>
-<h3 id="3">3. 游戏逻辑设计</h3>
+<h3 id="4">4. 程序控制流</h3>
 <ul>
-<li><strong>实时更新</strong>：将游戏分为输入相关（<code>updateWithInput</code>）和非输入相关（<code>updateWitoutIput</code>）逻辑。</li>
-<li><strong>碰撞检测</strong>：检查子弹与敌机、飞机与敌机的重叠。</li>
-<li><strong>模式实现</strong>：<ul>
-<li>普通模式：子弹直线发射。</li>
-<li>追踪模式：子弹自动追踪敌机。</li>
-<li>离手模式：飞机自动对齐敌机。</li>
-<li>复活模式：使用链表生成新飞机。</li>
-</ul>
-</li>
-</ul>
-<h3 id="4">4. 时间与随机性</h3>
-<ul>
-<li><strong>随机生成</strong>：使用 <code>srand</code> 和 <code>rand</code> 控制敌机位置和复活坐标。</li>
-<li><strong>速度控制</strong>：通过计数器 <code>speed</code> 和 <code>NUM</code> 调节敌机下落速度。</li>
+<li><strong>游戏循环</strong>：使用 <code>while</code> 循环实现游戏主循环。</li>
+<li><strong>状态管理</strong>：通过变量记录游戏状态（例如玩家生命值、得分）。</li>
 </ul>
 <hr />
 <h2 id="_5">掌握的技能</h2>
 <h3 id="1-c_1">1. C 编程能力</h3>
 <ul>
-<li>实现复杂逻辑，例如追踪子弹移动：
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">bulletMove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">enemy_x</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_x</span><span class="o">--</span><span class="p">;</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">enemy_x</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_x</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">enemy_y</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_y</span><span class="o">--</span><span class="p">;</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bullet_y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">enemy_y</span><span class="p">)</span><span class="w"> </span><span class="n">bullet_y</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></li>
-<li>熟练使用结构体和指针管理游戏状态。</li>
+<li>熟练操作二维数组，管理游戏界面。</li>
+<li>掌握了键盘输入的实时处理。</li>
+<li>理解了游戏循环的实现。</li>
 </ul>
-<h3 id="2">2. 控制台界面设计</h3>
+<h3 id="2_1">2. 游戏逻辑实现</h3>
 <ul>
-<li>设计了动态更新的游戏界面和侧边提示。
-  <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">scoreandtips</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">gotoxy</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
-<span class="w">    </span><span class="n">color</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;游戏得分：%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="p">);</span>
-<span class="w">    </span><span class="n">gotoxy</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;用W A S D 分别控制飞机的移动&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></li>
-<li>优化显示，避免闪烁（通过 <code>gotoxy</code> 代替 <code>system("cls")</code>）。</li>
+<li>实现了玩家控制、子弹发射和敌机移动。</li>
+<li>处理了碰撞检测和游戏结束逻辑。</li>
 </ul>
-<h3 id="3_1">3. 游戏开发技巧</h3>
+<h3 id="3_1">3. 调试与测试</h3>
 <ul>
-<li>实现了多模式选择，增强了游戏可玩性。</li>
-<li>处理了边界条件（如飞机不出界、子弹超出屏幕）。</li>
+<li>通过打印游戏界面验证每一步操作的正确性。</li>
+<li>测试了边界情况（如飞机移出边界、子弹击中敌机）。</li>
 </ul>
-<h3 id="4_1">4. 调试与优化</h3>
+<h3 id="4_1">4. 用户体验设计</h3>
 <ul>
-<li>通过打印坐标和状态调试碰撞检测。</li>
-<li>添加了模式选择界面和趣味提示（如“皮一下很开心”）。</li>
+<li>设计了简单的游戏界面和键盘控制。</li>
+<li>添加了得分和生命值显示，提升交互性。</li>
 </ul>
 <hr />
 <h2 id="_6">成长与反思</h2>
-<h3 id="1">1. 从简单到复杂</h3>
-<p>最初，我只熟悉基本的 C 语法，通过这个项目，我学会了整合输入、显示和逻辑更新，完成了首个交互式游戏。</p>
-<h3 id="2_1">2. 控制台开发的挑战</h3>
-<p>画面闪烁问题让我头疼，最终通过 <code>gotoxy</code> 局部更新解决，这让我认识到性能优化的重要性。</p>
-<h3 id="3_2">3. 设计思维的提升</h3>
-<p>实现多种模式让我开始思考如何平衡难度和趣味性，例如追踪模式太强，而普通模式略显单调。</p>
+<h3 id="1">1. 从静态到动态</h3>
+<p>通过这个项目，我从静态程序设计，走向了动态游戏开发，体会到了实时交互的乐趣。</p>
+<h3 id="2_2">2. 实时处理的挑战</h3>
+<p>在处理键盘输入时，我曾遇到输入延迟问题，通过调整帧率和清屏方式解决了问题。</p>
+<h3 id="3_2">3. 游戏设计的思考</h3>
+<p>当前游戏的敌机移动过于简单，未来可以添加更智能的 AI 算法。</p>
 <hr />
 <h2 id="_7">项目成果</h2>
 <ul>
-<li><strong>功能完整</strong>：实现了飞机移动、子弹发射、敌机生成和四种游戏模式。</li>
-<li><strong>代码质量</strong>：约 400 行 C 代码，结构清晰，包含多种交互元素。</li>
-<li><strong>测试验证</strong>：通过多次游戏测试验证了碰撞检测和模式切换的正确性。</li>
+<li><strong>功能完整</strong>：实现了飞机大战的核心功能，包括移动、射击和碰撞检测。</li>
+<li><strong>代码质量</strong>：代码结构清晰，注释完善。</li>
+<li><strong>测试验证</strong>：通过多次游戏验证了功能的正确性。</li>
 </ul>
 <hr />
 <h2 id="_8">下一步计划</h2>
 <ul>
-<li><strong>智能敌机</strong>：让敌机有简单的移动策略（如左右移动）。</li>
-<li><strong>多子弹支持</strong>：支持同时发射多颗子弹。</li>
-<li><strong>音效改进</strong>：完善背景音乐播放（当前注释掉）。</li>
-<li><strong>图形化界面</strong>：尝试使用图形库（如 SDL）替代控制台。</li>
+<li><strong>智能 AI</strong>：改进敌机移动，添加策略性。</li>
+<li><strong>图形界面</strong>：使用图形库（如 SDL）替代控制台显示。</li>
+<li><strong>音效支持</strong>：添加背景音乐和音效。</li>
+<li><strong>关卡设计</strong>：增加多关卡和难度递增。</li>
 </ul>
 <hr />
 <h2 id="_9">结语</h2>
-<p>“飞机大战”是我学习 C 语言的一次精彩实践。它让我从基础编程走向了游戏开发，掌握了控制台操作和动态数据管理的技能。这个项目不仅有趣，还增强了我的信心，未来我希望挑战更复杂的游戏设计。</p>
+<p>飞机大战是我学习 C 语言和游戏开发的一次有趣实践。它让我掌握了控制台游戏开发、键盘输入处理和逻辑设计的技能，为后续学习更复杂的游戏开发打下了基础。未来，我希望挑战更复杂的游戏项目，提升编程能力。</p>
               
             </div>
           </div><footer>
